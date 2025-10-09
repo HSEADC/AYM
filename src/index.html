@@ -4,15 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Главная</title>
+    <style>
+        body {
+            background: linear-gradient(to top, #896E3D 10%, #EEE9DE 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'PT Root UI', sans-serif;
+        }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 50px;
+        background: #896E3D;
+        display: flex;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    nav li {
+        flex: 1;
+    }
+    
+    nav a {
+        display: block;
+        padding: 15px 20px;
+        color: #EEE9DE;
+        text-decoration: none;
+        text-align: center;
+        transition: background 0.3s;
+    }
+    
+    nav a:hover {
+        background: #EEE9DE;
+    }
+    
+    nav a[href="index.html"] {
+        background: #e74c3c;
+    }
+</style>
   </head>
   <body>
- <h1>Главная</h1>
-
- <h2></h2>
- <ul>
-  <li><a href="pages/articles.html">Статьи</a></li>
-  <li><a href="pages/tests.html">Тесты</a></li>
-  <li><a href="pages/dictionary.html">Словарь</a></li>
- </ul>
-  </body>
+     <h1></h1>
+    <nav>
+        <ul>
+            <li><a href="pages/dictionary.html">Что это?</a></li>
+            <li><a href="pages/articles.html">Статьи</a></li>
+            <li><a href="pages/tests.html">Тесты</a></li>
+        </ul>
+    </nav>
+</body>
 </html>
