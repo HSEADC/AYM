@@ -1,0 +1,235 @@
+body {
+    /* background: linear-gradient(to top, #896E3D 10%, #EEE9DE 100%); */
+    background: #FDFBF5;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2vw;
+    font-family: 'PT Root UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Навигация */
+.logo {
+    position: absolute;
+    width: 8vw;
+    margin-left: 45vw;
+    margin-top: -1vw;
+}
+
+.o1 {
+  position: fixed;
+  display: block;
+  margin-top: -0.5vw;
+  margin-left: 2vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.3vw;
+    font-style: blackbe;
+    color: #896E3D;
+    text-decoration: none;
+}
+
+.o2 {
+  position: fixed;
+  display: block;
+  margin-top: -0.5vw;
+  margin-left: 12vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.3vw;
+    font-style: blackbe;
+    color: #896E3D;
+    text-decoration: none;
+}
+
+.o3 {
+  position: fixed;
+  display: block;
+  margin-top: -0.5vw;
+  margin-left: 75vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.3vw;
+    font-style: blackbe;
+    color: #896E3D;
+    text-decoration: none;
+}
+
+.o4 {
+  position: fixed;
+  display: block;
+  margin-top: -0.5vw;
+  margin-left: 84vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.3vw;
+    font-style: blackbe;
+    color: #896E3D;
+    text-decoration: none;
+}
+
+.boxed {
+  right: 0.2vw;
+}
+
+nav {
+    position: fixed;
+    left: 1.5vw;
+    margin-top: -1vw;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    /* background: #896E3D; */
+    display: flex;
+    border-radius: 0.5vw;
+    overflow: hidden;
+}
+    
+nav li {
+    flex: 1;
+    white-space: nowrap;
+}
+    
+nav a {
+    display: block;
+    padding: 1vw 1.7vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.1vw;
+    font-style: blackbe;
+    color: #896E3D;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+}
+    
+nav a:hover {
+    background: #896E3D;
+    color: #EEE9DE;
+}
+    
+nav a[href="index.html"] {
+    background: #896E3D;
+    color: #EEE9DE;
+    font-style: bold;
+}
+
+
+* Menu code starts here */
+
+#menuToggle {
+  display: block;
+  position: fixed;
+  top: 5vw;
+  left: 5vw;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #896E3D;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: rgb(246, 241, 240);
+}
+
+
+#menuToggle input {
+  display: block;
+  width: 4vw;
+  height: 3.2vw;
+  position: absolute;
+  top: -0.7vw;
+  left: -0.5vw;
+  
+  cursor: pointer;
+  
+  opacity: 0; 
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span {
+  display: block;
+  width: 3.3vw;
+  height: 0.4vw;
+  margin-bottom: 0.5vw;
+  position: relative;
+  
+  background: #514022;
+  border-radius: 0.3vw;
+  
+  z-index: 1;
+  
+  transform-origin: 0.4vw 0vw;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #fcfaf6;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+  position: absolute;
+  max-width: 30vw;
+  width: 50vw;
+  max-height: 100vh;
+  height: 100vw;
+  margin: -4vw 0 0 -2vw;
+  padding: 5vw;
+  padding-top: 12.5vw;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #514022;
+  list-style-type: none;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 1vw 0;
+  font-size: 2.2vw;
+}
+
+#menu li label
+{
+  cursor: pointer; 
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
