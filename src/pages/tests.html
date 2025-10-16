@@ -3,182 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
     <title>Тесты</title>
-      <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #ECDFC3 0%, #896E3D 100%);
-            min-height: 100vh;
-            font-family: 'PT Root UI', sans-serif;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Навигация */
-        nav {
-            margin-top: 30px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background: #896E3D;
-            display: flex;
-            border-radius: 12px;
-            overflow: hidden;
-            width: auto;
-            max-width: 500px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav li {
-            flex: 1;
-            white-space: nowrap;
-        }
-        
-        nav a {
-            display: block;
-            padding: 15px 25px;
-            color: #EEE9DE;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            background: #EEE9DE;
-            color: #896E3D;
-            transform: translateY(-2px);
-        }
-
-        /* Основной контент */
-        .main-container {
-            max-width: 900px;
-            width: 90%;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Заголовки страниц */
-        .page-header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 30px;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            color: #896E3D;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: inline-block;
-        }
-
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #896E3D;
-            border-radius: 2px;
-        }
-
-        .page-subtitle {
-            font-size: 1.2rem;
-            color: #5a4a2a;
-            font-weight: 300;
-            margin-top: 20px;
-        }
-
-        /* Карточки контента */
-        .content-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .card-title {
-            color: #896E3D;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-left: 4px solid #896E3D;
-            padding-left: 15px;
-        }
-
-        .card-text {
-            color: #5a4a2a;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Кнопки */
-        .btn {
-            display: inline-block;
-            background: #896E3D;
-            color: #EEE9DE;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(137, 110, 61, 0.3);
-        }
-
-        .btn:hover {
-            background: #745a2e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(137, 110, 61, 0.4);
-            color: #EEE9DE;
-        }
-
-        /* Списки */
-        .feature-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .feature-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            color: #5a4a2a;
-            font-size: 1.1rem;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #896E3D;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-    </style>
 </head>
 <body>
+    <button class="logo1">
+        <a href="../index.html">
+            <img src="../img/Group.png" alt="logo" class="logo"></img>
+        </a>
+    </button>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Главная</a></li>
+            <li><a href="../pages/dictionary.html">Звукотерапия</a></li>
+            <li><a href="../pages/articles.html">Статьи</a></li>
+            <li><a href="../pages/creator.html">Создатели</a></li>
+            <li><a href="../pages/results.html">Результаты</a></li>
+            <li><a href="../pages/tests.html">Тесты</a></li>
+        </ul>
+    </nav>
+
     <div class="main-container">
     <div class="page-header">
         <h1 class="page-title">Тесты</h1>
@@ -214,7 +63,7 @@
     </div>
 </div>
     <ul>
-        <li><a href="../index.html" class="btn" style="margin-top: 20px;">На главную</a></li>
+        <!-- <li><a href="../index.html" class="btn" style="margin-top: 20px;">На главную</a></li> -->
     </ul>
 </body>
 </html>

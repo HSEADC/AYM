@@ -3,55 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Главная</title>
-    <style>
-        body {
-            background: linear-gradient(to top, #896E3D 10%, #EEE9DE 100%);
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            font-family: 'PT Root UI', sans-serif;
-        }
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 20px 50px;
-        background: #896E3D;
-        display: flex;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    
-    nav li {
-        flex: 1;
-    }
-    
-    nav a {
-        display: block;
-        padding: 15px 20px;
-        color: #EEE9DE;
-        text-decoration: none;
-        text-align: center;
-        transition: background 0.3s;
-    }
-    
-    nav a:hover {
-        background: #EEE9DE;
-    }
-    
-    nav a[href="index.html"] {
-        background: #e74c3c;
-    }
-</style>
-  </head>
-  <body>
-     <h1></h1>
-    <nav>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <title>АУУ / звукотерапия</title>
+</head>
+<body>
+<button class="logo1">
+        
+            <img src="img/Group.png" alt="logo" class="logo"><a href="index.html"></a></img>
+        
+    </button>
+
+    <nav class="boxed">
         <ul>
-            <li><a href="pages/dictionary.html">Что это?</a></li>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="pages/dictionary.html">Звукотерапия</a></li>
             <li><a href="pages/articles.html">Статьи</a></li>
+            <li><a href="pages/creator.html">Создатели</a></li>
+            <li><a href="pages/results.html">Результаты</a></li>
             <li><a href="pages/tests.html">Тесты</a></li>
         </ul>
     </nav>
+    
+  <!-- <nav role="navigation">
+  <div id="menuToggle">
+    <input type="checkbox" id="menuCheckbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <li>
+        <a href="pages/dictionary.html">
+          <label for="menuCheckbox" onclick="this.parentNode.click();">Звукотерапия</label>
+        </a>
+      </li>
+      <li>
+        <a href="pages/articles.html">
+          <label for="menuCheckbox" onclick="this.parentNode.click();">Статьи</label>
+        </a>
+      </li>
+      <li>
+        <a href="pages/creator.html">
+          <label for="menuCheckbox" onclick="this.parentNode.click();">Создатели</label>
+        </a>
+      </li>
+      <li>
+        <a href="pages/results.html">
+          <label for="menuCheckbox" onclick="this.parentNode.click();">Результаты</label>
+        </a>
+      </li>
+      <li>
+        <a href="pages/tests.html">
+          <label for="menuCheckbox" onclick="this.parentNode.click();">Тесты</label>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+        <!-- <div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger"><div></div></div>
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="pages/dictionary.html">Звукотерапия</a></li>
+            <li><a href="pages/articles.html">Статьи</a></li>
+            <li><a href="pages/creator.html">Создатели</a></li>
+            <li><a href="pages/results.html">Результаты</a></li>
+            <li><a href="pages/tests.html">Тесты</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+        <div class="main-container">
+    <div class="page-header">
+        <h1 class="page-title">Что это?</h1>
+        <p class="page-subtitle">Знакомство с нашим медиа-сервисом</p>
+    </div>
+
+    <div class="content-card">
+        <h2 class="card-title">О нашем проекте</h2>
+        <p class="card-text">
+            Это инновационный медиа-сервис, созданный для тех, кто хочет узнать больше о звуковой терапии.
+        </p>
+        
+        <h2 class="card-title" style="margin-top: 30px;">Наши преимущества</h2>
+        <ul class="feature-list">
+            <li>Уникальная подборка материалов</li>
+            <li>Интерактивные тесты для проверки знаний</li>
+            <li>Экспертные статьи от профессионалов</li>
+            <li>Удобный и современный интерфейс</li>
+        </ul>
+
+        <a href="articles.html" class="btn" style="margin-top: 20px;">Начать изучение</a>
+    </div>
+</div>
 </body>
 </html>
