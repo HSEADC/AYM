@@ -1,14 +1,19 @@
+.screen2_2 {
+    width: 80vw;
+    height: 100vw;
+    margin-left: 10vw;
+}
+
 * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
-        /* Основной контент */
+/* Основной контент */
         .main-container {
             max-width: 900px;
-            width: 90%;
+            width: 90vw;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -118,3 +123,4 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
+
