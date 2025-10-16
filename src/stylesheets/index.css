@@ -16,56 +16,79 @@ body {
     margin-top: -1vw;
 }
 
-/* .o1 {
+.o1 {
   position: fixed;
   display: block;
-  margin-top: -0.5vw;
-  margin-left: 2vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
+  margin-top: -0.2vw;
+  left: 2vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
 }
 
 .o2 {
   position: fixed;
   display: block;
-  margin-top: -0.5vw;
-  margin-left: 12vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
+  margin-top: -0.2vw;
+  left: 12vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
 }
 
 .o3 {
   position: fixed;
   display: block;
-  margin-top: -0.5vw;
-  margin-left: 75vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
+  margin-top: -0.2vw;
+  left: 25vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
 }
 
 .o4 {
   position: fixed;
   display: block;
-  margin-top: -0.5vw;
-  margin-left: 84vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-} */
+  margin-top: -0.2vw;
+  right: 25vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
+}
+
+.o5 {
+  position: fixed;
+  display: block;
+  margin-top: -0.2vw;
+  right: 12vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
+}
+
+.o6 {
+  display: block;
+  margin-top: -0.2vw;
+  right: 2vw;
+  font-family: PragmaticaBlack;
+  font-size: 1.3vw;
+  font-style: blackbe;
+  color: #896E3D;
+  text-decoration: none;
+}
 
 .boxed {
-  right: 0.2vw;
+  position: fixed;
 }
 
 nav {
