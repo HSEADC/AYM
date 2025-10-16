@@ -3,15 +3,18 @@ body {
     background: #FDFBF5;
     min-height: 100vh;
     margin: 0;
-    padding: 2vw;
     font-family: 'PT Root UI', sans-serif;
     overflow-x: hidden;
 }
 
-/* Навигация */
+/* Навигация + ПЛАШКА/ЭКРАН 1 */
 .screen1_1 {
-  position: fixed;
-  margin-top: 0vw;
+  width: 100vw;
+  height: 8vw;
+}
+
+.boxed {
+  margin-top: 2vw;
 }
 
 .logo {
@@ -21,7 +24,7 @@ body {
 }
 
 .o1 {
-  position: fixed;
+  position: absolute;
   left: 17vw;
   font-family: PragmaticaBlack;
   font-size: 1.2vw;
@@ -32,7 +35,7 @@ body {
 }
 
 .o2 {
-  position: fixed;
+  position: absolute;
   left: 25vw;
   font-family: PragmaticaBlack;
   font-size: 1.2vw;
@@ -43,7 +46,7 @@ body {
 }
 
 .o3 {
-  position: fixed;
+  position: absolute;
   left: 36vw;
   font-family: PragmaticaBlack;
   font-size: 1.2vw;
@@ -54,8 +57,8 @@ body {
 }
 
 .o4 {
-  position:fixed;
-  right: 35vw;
+  position: absolute;
+  margin-left: 53vw;
   font-family: PragmaticaBlack;
   font-size: 1.2vw;
   font-style: blackbe;
@@ -65,8 +68,8 @@ body {
 }
 
 .o5 {
-  position: fixed;
-  right: 25vw;
+  position: absolute;
+  margin-left: 62vw;
   font-family: PragmaticaBlack;
   font-size: 1.3vw;
   font-style: blackbe;
@@ -76,8 +79,8 @@ body {
 }
 
 .o6 {
-  position: fixed;
-  right: 18vw;
+  position: absolute;
+  margin-left: 72vw;
   font-family: PragmaticaBlack;
   font-size: 1.2vw;
   font-style: blackbe;
@@ -115,14 +118,8 @@ nav a:hover {
     background: #896E3D;
     color: #EEE9DE;
 }
-    
-/* nav a[href="index.html"] {
-    background: #896E3D;
-    color: #EEE9DE;
-    font-style: bold;
-} */
 
-
+/* МЕНЮ ДЛЯ АДАПТАЦИИ */
 * Menu code starts here */
 
 #menuToggle {
@@ -245,6 +242,16 @@ nav a:hover {
   transform: none;
 }
 
+
+/* ЭКРАН 2 */
 .screen1_2 {
-  margin-top: 4vw;
+  width: 80vw;
+  height: 100vw;
+  margin-left: 10vw;
+}
+
+#fon1 {
+  width: 80vw;
+  height: 40vw;
+  background-color: #514022; 
 }
