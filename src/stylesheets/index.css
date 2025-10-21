@@ -8,7 +8,76 @@ body {
     overflow-x: hidden;
 }
 
+.screen1_1_plashka {
+  width: 100vw;
+  height: 5vw;
+}
+
+#boxed {
+  width: 70vw;
+  height: 3.75vw;
+  left: 15vw;
+  top: 1vw;
+  padding-top: 0.5vw;
+  background-color: #896E3D;
+  border-radius: 0.35vw;
+}
+
 /* Навигация */
+.logo {
+    width: 10vw;
+    margin-top: -1.7vw;
+}
+
+.boxed {
+  left: 22vw;
+  margin-top: 0.2vw;
+  background-color: #896E3D;
+}
+
+nav {
+    position: fixed;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    border-radius: 0.5vw;
+    overflow: hidden;
+}
+    
+nav li {
+    flex: 1;
+    white-space: nowrap;
+}
+    
+nav a {
+    display: block;
+    padding: 1vw 1.7vw;
+    font-family: PragmaticaBlack;
+    font-size: 1.1vw;
+    font-style: blackbe;
+    background: #FDFBF5;
+    color: #896E3D;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+nav a img {
+  display: block;
+  padding: 0.65vw 1.7vw;
+  background: #896E3D;
+}
+
+.screen1_2 {
+  width: 100vw;
+  height: 50vw;
+}
+
+/* Навигация
 .logo {
     position: absolute;
     width: 8vw;
@@ -77,7 +146,7 @@ nav {
 nav ul {
     list-style: none;
     padding: 0;
-    /* background: #896E3D; */
+    /* background: #896E3D; 
     display: flex;
     border-radius: 0.5vw;
     overflow: hidden;
@@ -109,7 +178,7 @@ nav a[href="index.html"] {
     background: #896E3D;
     color: #EEE9DE;
     font-style: bold;
-}
+} */
 
 
 * Menu code starts here */
@@ -206,7 +275,7 @@ nav a[href="index.html"] {
   padding: 5vw;
   padding-top: 12.5vw;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow-y: hidden;
   background: #514022;
   list-style-type: none;
   display: inline-block;
