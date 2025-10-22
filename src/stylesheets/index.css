@@ -15,7 +15,7 @@ body {
 
 /* Навигация */
 .boxed {
-  right: 5vw;
+  right: 7vw;
   margin-top: -4vw;
 }
 
@@ -23,7 +23,7 @@ body {
   position: relative;
   width: 7vw;
   margin-top: -1vw;
-  left: 0.5vw;
+  left: 1.5vw;
 }
 
 nav {
@@ -81,6 +81,7 @@ nav a[href="pages/us.html"] {
     position: relative;
     display: block;
     padding-bottom: 1vw;
+    margin-left: 2vw;
 }
 
 .page-subtitle {
@@ -91,6 +92,7 @@ nav a[href="pages/us.html"] {
   line-height: 1.5vw;
   font-weight: 300;
   margin-top: 2vw;
+  margin-left: 2vw;
 }
 
 /* Карточки контента */
@@ -243,6 +245,7 @@ nav a[href="pages/us.html"] {
   border-radius: 0.5vw;
   text-decoration: none;
   margin-top: 2vw;
+      margin-left: 2vw;
   height: 3vw;
 }
 
@@ -273,76 +276,75 @@ nav a[href="pages/us.html"] {
 }
 
 .block_theme {
-  margin-top: 5vw;
+  margin-top: 4vw;
   margin-left: 2vw;
 }
 
 .b1 {
-  font-size: 1.1vw;
-  font-family: ;
+  font-size: 1.2vw;
+  font-family: RalewaySB;
   color: #1b1b1b;
   width: 21vw;
-  padding: 1vw 1.7vw;
+  padding-top: 2vw;
+  padding-left: 1.5vw;
   text-decoration: none;
   text-align: left;
 }
 
 .b2 {
-  font-size: 0.9vw;
-  font-family: ;
+  font-size: 1vw;
+  font-family: Raleway;
   color: #181818;
-  width: 20vw;
+  width: 19.5vw;
   padding: 1vw 1.7vw;
   text-decoration: none;
-  line-height: 1.2vw;
-  text-align: left;
+  line-height: 1.1vw;
+  text-align: justify;
 }
 
 .theme1 {
   position: absolute;
   width: 20vw;
   background-color: #5B4733;
+  left: 8.5vw;
 }
 
 #theme1 {
   position: absolute;
-  width: 20vw;
+  width: 22.5vw;
   height: 10vw;
-  background-color: #5B4733;
+  background-color: #F3E8CA;
   border-radius: 1vw;
-  border-color: #f0f0f0;
 }
 
 .theme2 {
   position: absolute;
   width: 20vw;
   background-color: #5B4733;
-  left: 40vw;
+  left: 38vw;
 }
 
 #theme2 {
   position: absolute;
-  width: 20vw;
+  width: 22.5vw;
   height: 10vw;
-  background-color: #5B4733;
+  background-color: #f5f5f5;
   border-radius: 1vw;
-  border-color: #f0f0f0;
 }
 
 .theme3 {
   position: absolute;
   width: 20vw;
   background-color: #5B4733;
-  right: 10vw;
+  right: 9.5vw;
 }
 
 #theme3 {
   position: absolute;
-  width: 20vw;
+  width: 22.5vw;
   height: 10vw;
-  background-color: #5B4733;
+  background-color: #F3E8CA;
   border-radius: 1vw;
-  border-color: #f0f0f0;
 }
 
 .screen1_4 {
@@ -357,7 +359,7 @@ nav a[href="pages/us.html"] {
 .b3 {
   position: absolute;
   font-size: 2vw;
-  font-family: ;
+  font-family: RalewayM;
   color: #181818;
   width: 22vw;
   padding: 0.5vw;
@@ -366,6 +368,7 @@ nav a[href="pages/us.html"] {
   text-align: left;
   background-color: #F3E8CA;
   border-radius: 0.5vw;
+  margin-left: 2vw;
 }
 
 .b4 {
@@ -377,113 +380,8 @@ nav a[href="pages/us.html"] {
   text-decoration: none;
   line-height: 1.2vw;
   text-align: left;
-  left: 25vw;
+  left: 29vw;
 }
-
-
-/* Навигация
-.logo {
-    position: absolute;
-    width: 8vw;
-    margin-left: 45vw;
-    margin-top: -1vw;
-}
-
-.o1 {
-  position: fixed;
-  display: block;
-  margin-top: -0.5vw;
-  margin-left: 2vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-}
-
-.o2 {
-  position: fixed;
-  display: block;
-  margin-top: -0.5vw;
-  margin-left: 12vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-}
-
-.o3 {
-  position: fixed;
-  display: block;
-  margin-top: -0.5vw;
-  margin-left: 75vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-}
-
-.o4 {
-  position: fixed;
-  display: block;
-  margin-top: -0.5vw;
-  margin-left: 84vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.3vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-}
-
-.boxed {
-  right: 0.2vw;
-}
-
-nav {
-    position: fixed;
-    left: 1.5vw;
-    margin-top: -1vw;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    /* background: #896E3D; 
-    display: flex;
-    border-radius: 0.5vw;
-    overflow: hidden;
-}
-    
-nav li {
-    flex: 1;
-    white-space: nowrap;
-}
-    
-nav a {
-    display: block;
-    padding: 1vw 1.7vw;
-    font-family: PragmaticaBlack;
-    font-size: 1.1vw;
-    font-style: blackbe;
-    color: #896E3D;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.3s;
-}
-    
-nav a:hover {
-    background: #896E3D;
-    color: #EEE9DE;
-}
-    
-nav a[href="index.html"] {
-    background: #896E3D;
-    color: #EEE9DE;
-    font-style: bold;
-} */
-
 
 * Menu code starts here */
 
