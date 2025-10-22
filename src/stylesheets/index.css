@@ -1,20 +1,12 @@
 body {
-<<<<<<< HEAD
     background: #604426;
     min-height: 100vh;
     margin: 0;
     padding: 2vw;
-=======
-    /* background: linear-gradient(to top, #896E3D 10%, #EEE9DE 100%); */
-    background: #FDFBF5;
-    min-height: 100vh;
-    margin: 0;
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
     font-family: 'PT Root UI', sans-serif;
     overflow-x: hidden;
 }
 
-<<<<<<< HEAD
 .screen1_1_plashka {
   position: relative;
   width: 100vw;
@@ -447,88 +439,6 @@ nav a[href="pages/us.html"] {
 
 .boxed {
   right: 0.2vw;
-=======
-/* Навигация + ПЛАШКА/ЭКРАН 1 */
-.screen1_1 {
-  width: 100vw;
-  height: 8vw;
-}
-
-.boxed {
-  margin-top: 2vw;
-}
-
-.logo {
-    position: absolute;
-    width: 8vw;
-    margin-left: 44vw;
-}
-
-.o1 {
-  position: absolute;
-  left: 17vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.2vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
-}
-
-.o2 {
-  position: absolute;
-  left: 25vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.2vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
-}
-
-.o3 {
-  position: absolute;
-  left: 36vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.2vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
-}
-
-.o4 {
-  position: absolute;
-  margin-left: 53vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.2vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
-}
-
-.o5 {
-  position: absolute;
-  margin-left: 62vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.3vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
-}
-
-.o6 {
-  position: absolute;
-  margin-left: 72vw;
-  font-family: PragmaticaBlack;
-  font-size: 1.2vw;
-  font-style: blackbe;
-  color: #896E3D;
-  text-decoration: none;
-  padding: 1vw 1.7vw;
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
 }
 
 nav {
@@ -540,11 +450,7 @@ nav {
 nav ul {
     list-style: none;
     padding: 0;
-<<<<<<< HEAD
     /* background: #896E3D; 
-=======
-    /* background: #896E3D; */
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
     display: flex;
     border-radius: 0.5vw;
     overflow: hidden;
@@ -557,7 +463,6 @@ nav li {
     
 nav a {
     display: block;
-<<<<<<< HEAD
     padding: 1vw 1.7vw;
     font-family: PragmaticaBlack;
     font-size: 1.1vw;
@@ -565,8 +470,6 @@ nav a {
     color: #896E3D;
     text-decoration: none;
     text-align: center;
-=======
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
     transition: background 0.3s;
 }
     
@@ -574,7 +477,6 @@ nav a:hover {
     background: #896E3D;
     color: #EEE9DE;
 }
-<<<<<<< HEAD
     
 nav a[href="index.html"] {
     background: #896E3D;
@@ -583,10 +485,6 @@ nav a[href="index.html"] {
 } */
 
 
-=======
-
-/* МЕНЮ ДЛЯ АДАПТАЦИИ */
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
 * Menu code starts here */
 
 #menuToggle {
@@ -708,20 +606,3 @@ nav a[href="index.html"] {
 {
   transform: none;
 }
-<<<<<<< HEAD
-=======
-
-
-/* ЭКРАН 2 */
-.screen1_2 {
-  width: 80vw;
-  height: 100vw;
-  margin-left: 10vw;
-}
-
-#fon1 {
-  width: 80vw;
-  height: 40vw;
-  background-color: #514022; 
-}
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0

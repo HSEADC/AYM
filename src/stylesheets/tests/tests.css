@@ -1,83 +1,13 @@
-<<<<<<< HEAD
         /* Основной контент */
         /* .main-container {
-=======
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* body {
-            background: linear-gradient(135deg, #ECDFC3 0%, #896E3D 100%);
-            min-height: 100vh;
-            font-family: 'PT Root UI', sans-serif;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        } */
-
-        /* Навигация */
-        /* nav {
-            margin-top: 30px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background: #896E3D;
-            display: flex;
-            border-radius: 12px;
-            overflow: hidden;
-            width: auto;
-            max-width: 500px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav li {
-            flex: 1;
-            white-space: nowrap;
-        }
-        
-        nav a {
-            display: block;
-            padding: 15px 25px;
-            color: #EEE9DE;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            background: #EEE9DE;
-            color: #896E3D;
-            transform: translateY(-2px);
-        } */
-
-        /* Основной контент */
-        .main-container {
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
             max-width: 900px;
             width: 90%;
             margin: 40px auto;
             padding: 0 20px;
-<<<<<<< HEAD
         } */
 
         /* Заголовки страниц */
         /* .page-header {
-=======
-        }
-
-        /* Заголовки страниц */
-        .page-header {
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
             text-align: center;
             margin-bottom: 50px;
             padding: 30px;
@@ -109,17 +39,10 @@
             color: #5a4a2a;
             font-weight: 300;
             margin-top: 20px;
-<<<<<<< HEAD
         } */
 
         /* Карточки контента */
         /* .content-card {
-=======
-        }
-
-        /* Карточки контента */
-        .content-card {
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
             background: rgba(255, 255, 255, 0.9);
             border-radius: 16px;
             padding: 40px;
