@@ -1,5 +1,5 @@
 body {
-    background: #604426;
+    background: #5b4227;
     min-height: 100vh;
     margin: 0;
     padding: 2vw;
@@ -285,7 +285,7 @@ nav a[href="pages/us.html"] {
   font-family: RalewaySB;
   color: #1b1b1b;
   width: 21vw;
-  padding-top: 2vw;
+  padding-top: 1.5vw;
   padding-left: 1.5vw;
   text-decoration: none;
   text-align: left;
@@ -347,6 +347,12 @@ nav a[href="pages/us.html"] {
   border-radius: 1vw;
 }
 
+.s1_3 {
+  width: 1.3vw;
+  margin-left: 20vw;
+  margin-top: -5vw;
+}
+
 .screen1_4 {
   width: 100vw;
   height: 5vw;
@@ -361,12 +367,12 @@ nav a[href="pages/us.html"] {
   font-size: 2vw;
   font-family: RalewayM;
   color: #181818;
-  width: 22vw;
+  width: 20vw;
   padding: 0.5vw;
   text-decoration: none;
   line-height: 1.2vw;
   text-align: left;
-  background-color: #F3E8CA;
+  background-color: #F5F5F5;
   border-radius: 0.5vw;
   margin-left: 2vw;
 }
@@ -380,7 +386,7 @@ nav a[href="pages/us.html"] {
   text-decoration: none;
   line-height: 1.2vw;
   text-align: left;
-  left: 29vw;
+  left: 26vw;
 }
 
 * Menu code starts here */
