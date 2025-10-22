@@ -46,3 +46,31 @@
     font-style: blackbe;
     font-weight: 1.5vw;
 }
+
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway.ttf") format("truetype");
+    font-style: regular;
+    font-weight: 1.5vw;
+}
+
+@font-face {
+    font-family: "RalewaySB";
+    src: url("../fonts/Raleway-v4020-SemiBold.otf") format("truetype");
+    font-style: sb;
+    font-weight: 1.5vw;
+}
+
+@font-face {
+    font-family: "RalewayM";
+    src: url("../fonts/Raleway-v4020-Medium.otf") format("truetype");
+    font-style: sb;
+    font-weight: 1.5vw;
+}
+
+@font-face {
+    font-family: "SGrotesk";
+    src: url("../fonts/SpaceGrotesk.ttf") format("truetype");
+    font-style: regular;
+    font-weight: 1.5vw;
+}

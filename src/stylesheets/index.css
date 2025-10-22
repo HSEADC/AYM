@@ -1,6 +1,5 @@
 body {
-    /* background: linear-gradient(to top, #896E3D 10%, #EEE9DE 100%); */
-    background: #FDFBF5;
+    background: #604426;
     min-height: 100vh;
     margin: 0;
     padding: 2vw;
@@ -9,34 +8,26 @@ body {
 }
 
 .screen1_1_plashka {
+  position: relative;
   width: 100vw;
-  height: 5vw;
-}
-
-#boxed {
-  width: 70vw;
-  height: 3.75vw;
-  left: 15vw;
-  top: 1vw;
-  padding-top: 0.5vw;
-  background-color: #896E3D;
-  border-radius: 0.35vw;
+  height: 4vw;
 }
 
 /* Навигация */
-.logo {
-    width: 10vw;
-    margin-top: -1.7vw;
+.boxed {
+  right: 5vw;
+  margin-top: -4vw;
 }
 
-.boxed {
-  left: 22vw;
-  margin-top: 0.2vw;
-  background-color: #896E3D;
+.logo {
+  position: relative;
+  width: 7vw;
+  margin-top: -1vw;
+  left: 0.5vw;
 }
 
 nav {
-    position: fixed;
+    position: absolute;
     text-align: center;
 }
 
@@ -56,26 +47,339 @@ nav li {
 nav a {
     display: block;
     padding: 1vw 1.7vw;
-    font-family: PragmaticaBlack;
+    font-family: Raleway;
     font-size: 1.1vw;
-    font-style: blackbe;
-    background: #FDFBF5;
-    color: #896E3D;
+    color: #FFFFFF;
     text-decoration: none;
     text-align: center;
     transition: background 0.3s;
 }
 
-nav a img {
-  display: block;
-  padding: 0.65vw 1.7vw;
-  background: #896E3D;
+nav a[href="pages/us.html"] {
+  border: 0.1vw solid #FFFFFF;
+  border-radius: 0.5vw;
+  padding: 1vw 1.7vw;
 }
 
-.screen1_2 {
-  width: 100vw;
-  height: 50vw;
+/* Основной контент */
+.main-container {
+    max-width: 900px;
+    width: 90vw;
 }
+
+/* Заголовки страниц */
+.page-header {
+    text-align: left;
+    margin-bottom: 5vw;
+    padding: 3vw;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-family: RalewaySB;
+    color: #121212;
+    position: relative;
+    display: block;
+    padding-bottom: 1vw;
+}
+
+.page-subtitle {
+  width: 28vw;
+  font-size: 1.2vw;
+  font-family: RalewayM;
+  color: #121212;
+  line-height: 1.5vw;
+  font-weight: 300;
+  margin-top: 2vw;
+}
+
+/* Карточки контента */
+.content-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1.6vw;
+  padding: 4vw;
+  margin-bottom: 3vw;
+  box-shadow: 0 0.8vw 2.5vw rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1vw);
+  border: 0.1vw solid rgba(255, 255, 255, 0.3);
+}
+
+.card-title {
+  color: #121212;
+  font-size: 1.8rem;
+  margin-bottom: 2vw;
+  border-left: 0.4vw solid #896E3D;
+  padding-left: 1.5vw;
+}
+
+.card-text {
+  color: #5a4a2a;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 2vw;
+}
+
+/* Кнопки */
+/* .btn {
+  display: inline-block;
+  background: #896E3D;
+  color: #EEE9DE;
+  padding: 1.2vw 2.5vw;
+  border-radius: 0.8vw;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0.4vw 1vw rgba(137, 110, 61, 0.3);
+}
+
+.btn:hover {
+  background: #745a2e;
+  transform: translateY(-0.2vw);
+  box-shadow: 0 0.6vw 1.5vw rgba(137, 110, 61, 0.4);
+  color: #EEE9DE;
+} */
+
+/* Списки */
+.feature-list {
+  list-style: none;
+  margin: 2vw 0;
+}
+
+.feature-list li {
+  padding: 1vw 0;
+  padding-left: 3vw;
+  position: relative;
+  color: #5a4a2a;
+  font-size: 1.1rem;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #896E3D;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+
+
+.screen1_2 {
+  width: 90vw;
+  height: 35vw;
+  border-radius: 3vw;
+  background-color: #f0f0f0;
+}
+
+#sreen1_2 {
+  margin-top: 2vw;
+  width: 90vw;
+  height: 37vw;
+  margin-left: 2.5vw;
+  border-radius: 3vw;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.a1 {
+  position: relative;
+  font-size: 2.5vw;
+  font-family: RalewaySB;
+  color: #101010;
+  width: 20vw;
+  text-decoration: none;
+  margin-top: 2vw;
+  margin-left: 2vw;
+}
+
+.a1_1 {
+  color: #604426;
+  text-decoration: none;
+  font-family: SGrotesk;
+  font-weight: 450;
+}
+
+.a2 {
+  position: relative;
+  font-size: 2.5vw;
+  font-family: RalewayM;
+  color: #101010;
+  width: 40vw;
+  text-decoration: none;
+  margin-top: 4.5vw;
+  margin-left: 2vw;
+}
+
+.a3 {
+  position: relative;
+  font-size: 0.9vw;
+  font-family: ;
+  color: #101010;
+  width: 21vw;
+  text-decoration: none;
+  line-height: 1.5vw;
+  margin-top: 8.5vw;
+  margin-left: 2vw;
+}
+
+.a4 {
+  position: relative;
+  font-size: 0.9vw;
+  font-family: ;
+  color: #101010;
+  width: 21vw;
+  text-decoration: none;
+  line-height: 1.5vw;
+  margin-top: 17.5vw;
+  margin-left: 2vw;
+}
+
+.btm_a5 {
+  position: relative;
+  background-color: #5E4326;
+  border-radius: 0.5vw;
+  text-decoration: none;
+  margin-top: 2vw;
+  height: 3vw;
+}
+
+.a6 {
+  font-size: 0.9vw;
+  font-family: RalewayM;
+  color: #f0f0f0;
+  width: 21vw;
+  padding: 1vw 1.7vw;
+  text-decoration: none;
+  line-height: 1.5vw;
+  text-align: center;
+}
+
+.img_a7 {
+  position: absolute;
+  margin-top: -25vw;
+  left: 43vw;
+}
+
+.img_a8 {
+  width: 55vw;
+}
+
+.screen1_3 {
+  width: 80vw;
+  height: 15vw;
+}
+
+.block_theme {
+  margin-top: 5vw;
+  margin-left: 2vw;
+}
+
+.b1 {
+  font-size: 1.1vw;
+  font-family: ;
+  color: #1b1b1b;
+  width: 21vw;
+  padding: 1vw 1.7vw;
+  text-decoration: none;
+  text-align: left;
+}
+
+.b2 {
+  font-size: 0.9vw;
+  font-family: ;
+  color: #181818;
+  width: 20vw;
+  padding: 1vw 1.7vw;
+  text-decoration: none;
+  line-height: 1.2vw;
+  text-align: left;
+}
+
+.theme1 {
+  position: absolute;
+  width: 20vw;
+  background-color: #5B4733;
+}
+
+#theme1 {
+  position: absolute;
+  width: 20vw;
+  height: 10vw;
+  background-color: #5B4733;
+  border-radius: 1vw;
+  border-color: #f0f0f0;
+}
+
+.theme2 {
+  position: absolute;
+  width: 20vw;
+  background-color: #5B4733;
+  left: 40vw;
+}
+
+#theme2 {
+  position: absolute;
+  width: 20vw;
+  height: 10vw;
+  background-color: #5B4733;
+  border-radius: 1vw;
+  border-color: #f0f0f0;
+}
+
+.theme3 {
+  position: absolute;
+  width: 20vw;
+  background-color: #5B4733;
+  right: 10vw;
+}
+
+#theme3 {
+  position: absolute;
+  width: 20vw;
+  height: 10vw;
+  background-color: #5B4733;
+  border-radius: 1vw;
+  border-color: #f0f0f0;
+}
+
+.screen1_4 {
+  width: 100vw;
+  height: 5vw;
+}
+
+.block_why {
+  width: 70vw;
+}
+
+.b3 {
+  position: absolute;
+  font-size: 2vw;
+  font-family: ;
+  color: #181818;
+  width: 22vw;
+  padding: 0.5vw;
+  text-decoration: none;
+  line-height: 1.2vw;
+  text-align: left;
+  background-color: #F3E8CA;
+  border-radius: 0.5vw;
+}
+
+.b4 {
+  position: absolute;
+  font-size: 0.9vw;
+  font-family: ;
+  color: #eeeeee;
+  width: 30vw;
+  text-decoration: none;
+  line-height: 1.2vw;
+  text-align: left;
+  left: 25vw;
+}
+
 
 /* Навигация
 .logo {

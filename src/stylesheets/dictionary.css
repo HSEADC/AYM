@@ -1,20 +1,20 @@
-* {
+/* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        } */
 
 
-        /* Основной контент */
+        /* Основной контент
         .main-container {
             max-width: 900px;
             width: 90%;
             margin: 40px auto;
             padding: 0 20px;
-        }
+        } */
 
         /* Заголовки страниц */
-        .page-header {
+        /* .page-header {
             text-align: center;
             margin-bottom: 50px;
             padding: 30px;
@@ -46,10 +46,10 @@
             color: #5a4a2a;
             font-weight: 300;
             margin-top: 20px;
-        }
+        } */
 
         /* Карточки контента */
-        .content-card {
+        /* .content-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 16px;
             padding: 40px;
@@ -72,10 +72,10 @@
             line-height: 1.7;
             font-size: 1.1rem;
             margin-bottom: 20px;
-        }
+        } */
 
         /* Кнопки */
-        .btn {
+        /* .btn {
             display: inline-block;
             background: #896E3D;
             color: #EEE9DE;
@@ -94,10 +94,10 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(137, 110, 61, 0.4);
             color: #EEE9DE;
-        }
+        } */
 
         /* Списки */
-        .feature-list {
+        /* .feature-list {
             list-style: none;
             margin: 20px 0;
         }
@@ -117,4 +117,4 @@
             color: #896E3D;
             font-weight: bold;
             font-size: 1.2rem;
-        }
+        } */
