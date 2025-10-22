@@ -360,6 +360,7 @@ nav a[href="pages/us.html"] {
 
 .block_why {
   width: 70vw;
+  max-width: 900px;
 }
 
 .b3 {
@@ -389,9 +390,92 @@ nav a[href="pages/us.html"] {
   left: 26vw;
 }
 
-* Menu code starts here */
+.screen1_5 {
+  width: 100vw;
+  height: 54vw;
+}
 
-#menuToggle {
+.block_why1 {
+  margin-top: 2vw;
+  margin-left: 2vw;
+}
+
+#buf1 {
+  width: 82vw;
+  height: 7vw;
+  border-radius: 1.5vw;
+  background-color: #f5f5f5;
+  margin-bottom: 1.5vw;
+  margin-left: 4vw;
+}
+
+#buf1:hover {
+  background-color: #F3E8CA;
+}
+
+.c1 {
+  position: relative;
+  font-family: SGrotesk;
+  font-size: 3vw;
+  font-weight: 450;
+  padding-top: 2vw;
+  padding-right: 2vw;
+  padding-left: 1.5vw;
+  margin-left: 2vw;
+}
+
+.c2 {
+  position: relative;
+  font-family: RalewaySB;
+  font-size: 1.5vw;
+  font-weight: 450;
+  padding-top: 1.5vw;
+  padding-left: 2vw;
+  padding-left: 1.5vw;
+}
+
+.img_c3 {
+  position: absolute;
+  width: 2vw;
+  margin-left: 77vw;
+  margin-top: -2.5vw;
+}
+
+.screen1_6 {
+  width: 100vw;
+  height: 5vw;
+}
+
+.b3_1 {
+  position: absolute;
+  font-size: 2vw;
+  font-family: RalewayM;
+  color: #181818;
+  width: 6.5vw;
+  padding: 0.5vw;
+  text-decoration: none;
+  line-height: 1.2vw;
+  text-align: left;
+  background-color: #F5F5F5;
+  border-radius: 0.5vw;
+  margin-left: 2vw;
+}
+
+.b4_1 {
+  position: absolute;
+  font-size: 0.9vw;
+  font-family: ;
+  color: #eeeeee;
+  width: 21vw;
+  text-decoration: none;
+  line-height: 1.2vw;
+  text-align: left;
+  left: 13vw;
+}
+
+/* Menu code starts here */
+
+/* #menuToggle {
   display: block;
   position: fixed;
   top: 5vw;
@@ -509,4 +593,4 @@ nav a[href="pages/us.html"] {
 #menuToggle input:checked ~ ul
 {
   transform: none;
-}
+} */
