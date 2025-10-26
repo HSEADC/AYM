@@ -1,65 +1,74 @@
-@media screen and (min-width: 1px) and (max-width: 450px)  {
-    /* .menu-wrap {
-        display: block;
+@media (min-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        padding: 3rem;
     }
-
-    nav {
-        display: none;
-    } */
-
-    .logo {
-        width: 10vw;
+            
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-
+            
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+            
+    .subscribe-content {
+        grid-template-columns: 1fr 1fr;
+        padding: 3rem;
+    }
+            
+    .tests-container {
+        padding: 3rem;
+    }
+            
+    .test-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+            
+    .creators-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+            
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-@media screen and (min-width: 451px) and (max-width: 768px) {
-    /* .menu-wrap {
-        display: block;
+@media (min-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    nav {
-        display: none;
-    } */
-
-    .logo {
-        width: 30vw;
+            
+    .creators-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-
-@media screen and (min-width: 769px) and (max-width:  1366px) {
-    /* .menu-wrap {
+@media (max-width: 767px) {
+    .nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--amber-900);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
     }
-
-    nav {
+            
+    .nav.mobile-active {
+        display: flex;
+    }
+            
+    .menu-toggle {
         display: block;
-    } */
+    }
+            
+    .hero-title {
+        font-size: 1.75rem;
+    }
 }
 
-@media screen and (min-width:  1366px) and (max-width: 1440px) {
-    /* .menu-wrap {
-        display: none;
-    }
-
-    nav {
-        display: block;
-    } */
-}
-
-@media screen and (min-width: 1441px) and (max-width: 1920px) {
-    /* .menu-wrap {
-        display: none;
-    }
-
-    nav {
-        display: block;
-    } */
-/* desctop */
-}
-
-
-@media screen and (min-width: 1921px) {
-
-} 
