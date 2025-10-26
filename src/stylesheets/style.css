@@ -2,36 +2,14 @@
 @import url(fonts.css);
 @import url(adaptive.css);
 @import url(index.css);
-<<<<<<< HEAD
-=======
-@import url(dictionary.css);
-@import url(creator.css);
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
 @import url(articles/articles_glav.css);
 @import url(articles/article1.css);
 @import url(articles/article2.css);
 @import url(articles/article3.css);
-<<<<<<< HEAD
 @import url(creator.css);
 @import url(dictionary.css);
-=======
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
 @import url(results.css);
 @import url(tests/tests.css);
 @import url(tests/test1.css);
 @import url(tests/test2.css);
 @import url(tests/test3.css);
-<<<<<<< HEAD
-/* @import url();
-@import url();
-@import url();
-@import url();
-@import url();
-@import url();
-@import url();
-@import url();
-@import url();
-@import url(); */
-=======
-@import url(layout.css);
->>>>>>> e44f2da8d107d272db9cfa2a51da8fd2e2e8c8d0
