@@ -247,7 +247,6 @@
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
-            /* margin-bottom: 0.5rem; */
             color: #FAF3E8;
         }
 
@@ -321,7 +320,7 @@
 
         .accordion-content p {
             padding: 1.5rem;
-            border-top: 1px solid #E5E5E5;
+            border-top: 0.1vw solid #E5E5E5;
         }
 
         .accordion-item.active .accordion-content {
@@ -330,139 +329,179 @@
 
         /* Articles Section */
         .articles {
-            padding: 3rem 0;
+            padding-bottom: 2.5vw;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 2.4vw;
+            margin-bottom: 4.8vw;
+        }
+
+        .tex1 {
+            color: #604426;
+        }
+
+        .tex2 {
+            color: #fff;
+        }
+
+        .section-title {
+            background-color: #f0e6d2;
+            color: #604426;
+            padding: 1.2vw 2vw;
+            border-radius: 0.8vw;
+            font-weight: bold;
+            font-size: 2.4vw;
+        }
+
+        .section-description {
+            color: white;
+            font-size: 1.6vw;
         }
 
         .articles-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.4vw;
         }
 
         .article-card {
+            background-color: white;
+            border-radius: 1.6vw;
+            padding: 2.4vw;
+            box-shadow: 0 0.4vw 1.2vw rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
             display: flex;
-            gap: 1rem;
-            padding: 1.5rem;
-            border-radius: 1.25rem;
-            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .article-light {
-            background-color: #FAF3E8;
-            color: #604426;
+        .article-card:hover {
+            transform: translateY(-0.4vw);
         }
 
-        .article-white {
-            background-color: #FFFFFF;
-            color: #604426;
-            border: 1px solid #604426;
-        }
-
-        .article-dark {
-            background-color: #8B5E3C;
-            color: #FFFFFF;
-        }
-
-        .article-image {
-            width: 96px;
-            height: 96px;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        .article-content {
-            flex: 1;
-        }
-
-        .article-category {
-            display: inline-block;
-            background-color: #604426;
-            color: #FFFFFF;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .article-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .article-excerpt {
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .article-read-more {
-            display: flex;
-            align-items: center;
-            font-size: 0.875rem;
-            gap: 0.25rem;
-        }
-
-        .article-read-more i {
-            color: #604426;
-        }
-
-        .article-decoration {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        /* Subscribe Section */
-        .subscribe {
-            padding: 3rem 0;
-        }
-
-        .subscribe-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            background-color: #FFFFFF;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .subscribe-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #604426;
-            margin-bottom: 1rem;
-        }
-
-        .subscribe-description {
-            color: #404040;
-            margin-bottom: 1.5rem;
-        }
-
-        .subscribe-image {
-            position: relative;
-        }
-
-        .subscribe-decor {
-            background-color: #FAF3E8;
-            border-radius: 1.25rem;
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        .sub-decor-1 {
+        .article-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            border: 0.2vw solid white;
+            border-radius: 1.6vw;
+            pointer-events: none;
         }
 
-        .sub-decor-2 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
+        /* Card variations */
+        .article-card-1 {
+            background-color: white;
         }
+
+        .article-card-2 {
+            background-color: #f0e6d2;
+        }
+
+        .article-card-3 {
+            background-color: #5a402b;
+            color: white;
+        }
+
+        .article-card-4 {
+            background-color: white;
+        }
+
+        .article-card-5 {
+            background-color: #f0e6d2;
+        }
+
+        .article-card-6 {
+            background-color: #5a402b;
+            color: white;
+        }
+
+        .article-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4vw;
+            margin-bottom: auto;
+        }
+
+        .article-title-chunk {
+            background-color: #5a402b;
+            color: white;
+            padding: 0.6vw 1.2vw;
+            border-radius: 0.6vw;
+            font-weight: 500;
+            font-size: 1.4vw;
+            line-height: 1.2;
+        }
+
+        .article-title-chunk:nth-child(2) {
+            background-color: #5a402b;
+            color: white;
+        }
+
+        .article-card-2 .article-title-chunk,
+        .article-card-5 .article-title-chunk {
+            background-color: white;
+            color: #5a402b;
+        }
+
+        .article-card-3 .article-title-chunk,
+        .article-card-6 .article-title-chunk {
+            background-color: white;
+            color: #5a402b;
+        }
+
+        .read-more {
+            display: flex;
+            align-items: center;
+            gap: 0.8vw;
+            margin-top: 1.6vw;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            align-self: flex-start;
+            font-size: 1.4vw;
+        }
+
+        .read-more:hover {
+            opacity: 0.8;
+        }
+
+        .read-more-icon {
+            width: 2vw;
+            height: 2vw;
+            border-radius: 50%;
+            background-color: #5a402b;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .read-more-icon svg {
+            width: 1.2vw;
+            height: 1.2vw;
+            fill: white;
+        }
+
+        .article-card-2 .read-more-icon,
+        .article-card-5 .read-more-icon {
+            background-color: #5a402b;
+            color: white;
+        }
+
+        .article-card-3 .read-more-icon,
+        .article-card-6 .read-more-icon {
+            background-color: white;
+            color: #5a402b;
+        }
+
 
         /* Tests Section */
 .section {
@@ -954,7 +993,7 @@
 
         /* Zaglushka */
         .footer {
-            background-color: #ffffff;
+            background-color: #ffff;
             border-radius: 2.4vw 2.4vw 0vw 0vw;
             padding-top: 4vw;
             padding-left: 4vw;
@@ -1038,7 +1077,7 @@
 
         .contact-label {
             background-color: #6B462A;
-            color: #ffffff;
+            color: rgb(255, 255, 255);
             padding: 0.6vw 2vw;
             border-radius: 0.5vw;
             font-weight: 500;
@@ -1076,10 +1115,10 @@
         .email-input {
             flex: 1;
             padding: 1vw 2vw;
-            border: 0.1vw solid #ffffff;
+            border: 0.1vw solid #f9f5ed;
             border-radius: 0.5vw;
             font-size: 0.8vw;
-            color: #ffffff;
+            color: #f9f5ed;
             background-color: #6B462A;
             transition: border-color 0.2s ease;
             min-width: 250px;
@@ -1091,12 +1130,12 @@
         }
 
         .subscribe-button {
-            background-color: #ffffff;
+            background-color: #f9f5ed;
             color: #6B462A;
             border: none;
             padding: 1vw 3.2vw;
             border-radius: 0.5vw;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 1vw;
             cursor: pointer;
             transition: background-color 0.2s ease;
