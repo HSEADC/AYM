@@ -72,3 +72,126 @@
     }
 }
 
+/* Responsive Design */
+        @media (max-width: 992px) {
+            .footer {
+                padding: 3vw;
+            }
+
+            .header-section {
+                flex-direction: column;
+                gap: 2vw;
+                padding-bottom: 2vw;
+                margin-bottom: 2vw;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-section {
+                flex-direction: column;
+                gap: 3vw;
+            }
+
+            .subscription-box {
+                flex-direction: column;
+                padding: 2.4vw;
+            }
+
+            .email-input {
+                min-width: 100%;
+            }
+
+            .subscribe-button {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 3.2vw 1.6vw;
+            }
+
+            .footer {
+                padding: 2.4vw;
+            }
+
+            .footer-content {
+                gap: 2.4vw;
+            }
+
+            .header-section {
+                padding-bottom: 1.6vw;
+                margin-bottom: 1.6vw;
+            }
+
+            .logo-text {
+                font-size: 2.4vw;
+            }
+
+            .nav-menu {
+                gap: 2vw;
+            }
+
+            .contact-label {
+                font-size: 1.2vw;
+                padding: 0.4vw 0.8vw;
+            }
+
+            .email-input {
+                padding: 1.2vw 1.6vw;
+                font-size: 1.4vw;
+                min-width: 100%;
+            }
+
+            .subscribe-button {
+                padding: 1.2vw 2.4vw;
+                font-size: 1.4vw;
+                min-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.6vw;
+                padding-top: 1.6vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 2vw;
+            }
+
+            .footer-content {
+                gap: 2vw;
+            }
+
+            .logo-text {
+                font-size: 2vw;
+            }
+
+            .nav-menu {
+                gap: 1.6vw;
+                font-size: 1.2vw;
+            }
+
+            .contact-links {
+                gap: 0.6vw;
+            }
+
+            .email-input {
+                padding: 1vw 1.2vw;
+                font-size: 1.2vw;
+            }
+
+            .subscribe-button {
+                padding: 1vw 2vw;
+                font-size: 1.2vw;
+            }
+
+            .copyright {
+                font-size: 1.2vw;
+            }
+        }
