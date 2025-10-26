@@ -407,7 +407,7 @@
     </section>
 
     <!-- Subscribe Section -->
-    <section class="subscribe">
+    <!-- <section class="subscribe">
         <div class="container">
             <div class="subscribe-content">
                 <div class="subscribe-text">
@@ -429,43 +429,125 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Tests Section -->
     <section class="tests">
         <div class="container">
+        <section class="section tests-section">
             <div class="section-header">
-                <h2 class="section-title">Тесты</h2>
-                <p class="section-subtitle">Исследуйте наши различные тесты, которые помогут вам углубиться и лучше разбираться в теме!</p>
+                <div class="section-title">Тесты</div>
+                <div class="section-subtitle">Исследуйте наши различные тесты, которые помогут вам углубиться и лучше разбираться в теме!</div>
             </div>
             
-            <div class="tests-container">
-                <div class="test-card">
+            <div class="tests-cards">
+                <div class="test-card active" data-index="0">
                     <h3 class="test-title">«Какой тип звука вам нужен прямо сейчас?»</h3>
                     <p class="test-description">Пройдите этот тест, чтобы понять, что вашему организму требуется в данный момент — энергия, глубокое расслабление или снятие напряжения. Вы получите персонализированную подборку звуковых треков и практик.</p>
-                    <div class="test-read-more">
-                        <span>Подробнее</span>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="test-link">Подробнее →</div>
                 </div>
-                <div class="test-card">
+                
+                <div class="test-card" data-index="1">
                     <h3 class="test-title">«Насколько вы чувствительны к звуку?»</h3>
                     <p class="test-description">Узнайте свой уровень звуковой чувствительности. Это поможет вам лучше понимать свои реакции на шум и тишину, подобрать комфортную звуковую среду и избегать звукового стресса.</p>
-                    <div class="test-read-more">
-                        <span>Подробнее</span>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="test-link">Подробнее →</div>
                 </div>
-                <div class="test-card">
+                
+                <div class="test-card" data-index="2">
                     <h3 class="test-title">«Какой инструмент звукотерапии вам подходит?»</h3>
                     <p class="test-description">Вы любите низкие вибрации или высокие? Ответьте на 5 вопросов, и мы подскажем, звучание какого инструмента (поющая чаша, гонг, диджериду) может оказать на вас самое благоприятное воздействие.</p>
-                    <div class="test-read-more">
-                        <span>Подробнее</span>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="test-link">Подробнее →</div>
                 </div>
             </div>
-        </div>
+            
+            <div class="navigation tests-navigation">
+                <button class="nav-btn prev-btn" id="prevTestBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="dots" id="testDots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="nav-btn next-btn" id="nextTestBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </div>
+
+              <script>
+                              // script.js
+class Carousel {
+    constructor(containerSelector, itemsSelector, dotsSelector, prevBtnSelector, nextBtnSelector) {
+        this.container = document.querySelector(containerSelector);
+        this.items = Array.from(this.container.querySelectorAll(itemsSelector));
+        this.dots = Array.from(this.container.querySelectorAll(dotsSelector + ' .dot'));
+        this.prevBtn = this.container.querySelector(prevBtnSelector);
+        this.nextBtn = this.container.querySelector(nextBtnSelector);
+        this.currentIndex = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        this.updateActiveItem();
+        this.bindEvents();
+    }
+    
+    bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.prev());
+        this.nextBtn.addEventListener('click', () => this.next());
+        
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goTo(index));
+        });
+    }
+    
+    updateActiveItem() {
+        // Remove active class from all items and dots
+        this.items.forEach(item => item.classList.remove('active'));
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current item and dot
+        this.items[this.currentIndex].classList.add('active');
+        this.dots[this.currentIndex].classList.add('active');
+    }
+    
+    prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+        this.updateActiveItem();
+    }
+    
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.items.length;
+        this.updateActiveItem();
+    }
+    
+    goTo(index) {
+        this.currentIndex = index;
+        this.updateActiveItem();
+    }
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize tests carousel
+    new Carousel(
+        '.tests-section',
+        '.test-card',
+        '#testDots',
+        '#prevTestBtn',
+        '#nextTestBtn'
+    );
+});
+
+
+              </script>
     </section>
 
     <!-- Testimonials Section -->
