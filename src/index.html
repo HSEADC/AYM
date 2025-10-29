@@ -49,9 +49,9 @@
                 </p>
                 <button class="btn-secondary">Подробнее...</button>
             </div>
-            <div class="hero-image">
+            <!-- <div class="hero-image">
                 <img src="./img/s1_2.png" alt="Звуковая чаша" class="hero-img">
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -261,93 +261,74 @@
 
 <!-- Tests Section -->
 <section class="tests">
-    <div class="container">
-        <section class="section tests-section">
+        <div class="container">
             <div class="section-header">
-                <div class="section-title">Тесты</div>
-                <div class="section-subtitle">Исследуйте наши различные тесты, которые помогут вам углубиться и лучше разбираться в теме!</div>
+            <div class="section-title">Тесты</div>
+            <div class="section-description">Исследуйте наши различные тесты, которые помогут вам углубиться и лучше разбираться в теме!</div>
+        </div>
+
+        <main class="content">
+            <div class="tests-container">
+                <div class="test-card">
+                    <h3>«Какой тип звука вам нужен прямо сейчас?»</h3>
+                    <p>Пройдите этот тест, чтобы понять, что вашему организму требуется в данный момент — энергия, глубокое расслабление или снятие напряжения. Вы получите персонализированную подборку звуковых треков и практик.</p>
+                    <a href="#" class="read-more22">Подробнее →</a>
+                </div>
+
+                <div class="test-card">
+                    <h3>«Насколько вы чувствительны к звуку?»</h3>
+                    <p>Узнайте свой уровень звуковой чувствительности. Это поможет вам лучше понимать свои реакции на шум и тишину, подобрать комфортную звуковую среду и избегать звукового стресса.</p>
+                    <a href="#" class="read-more22">Подробнее →</a>
+                </div>
+
+                <div class="test-card">
+                    <h3>«Какой инструмент звукотерапии вам подходит?»</h3>
+                    <p>Вы любите низкие вибрации или высокие? Ответьте на 5 вопросов, и мы подскажем, звучание какого инструмента (поющая чаша, гонг, диджериду) может оказать на вас самое благоприятное воздействие.</p>
+                    <a href="#" class="read-more22">Подробнее →</a>
+                </div>
             </div>
-            <div class="tests-cards">
-                <div class="test-card active" data-index="0">
-                    <h3 class="test-title">«Какой тип звука вам нужен прямо сейчас?»</h3>
-                    <p class="test-description">Пройдите этот тест, чтобы понять, что вашему организму требуется в данный момент — энергия, глубокое расслабление или снятие напряжения. Вы получите персонализированную подборку звуковых треков и практик.</p>
-                    <div class="test-link">Подробнее →</div>
-                </div>
-                <div class="test-card" data-index="1">
-                    <h3 class="test-title">«Насколько вы чувствительны к звуку?»</h3>
-                    <p class="test-description">Узнайте свой уровень звуковой чувствительности. Это поможет вам лучше понимать свои реакции на шум и тишину, подобрать комфортную звуковую среду и избегать звукового стресса.</p>
-                    <div class="test-link">Подробнее →</div>
-                </div>
-                <div class="test-card" data-index="2">
-                    <h3 class="test-title">«Какой инструмент звукотерапии вам подходит?»</h3>
-                    <p class="test-description">Вы любите низкие вибрации или высокие? Ответьте на 5 вопросов, и мы подскажем, звучание какого инструмента (поющая чаша, гонг, диджериду) может оказать на вас самое благоприятное воздействие.</p>
-                    <div class="test-link">Подробнее →</div>
-                </div>
-            </div>
-            <div class="navigation tests-navigation">
-                <button class="nav-btn prev-btn" id="prevTestBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <div class="dots" id="testDots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-                <button class="nav-btn next-btn" id="nextTestBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-        </section>
+        </main>
     </div>
-    <script>
-        class Carousel {
-            constructor(containerSelector, itemsSelector, dotsSelector, prevBtnSelector, nextBtnSelector) {
-                this.container = document.querySelector(containerSelector);
-                this.items = Array.from(this.container.querySelectorAll(itemsSelector));
-                this.dots = Array.from(this.container.querySelectorAll(dotsSelector + ' .dot'));
-                this.prevBtn = this.container.querySelector(prevBtnSelector);
-                this.nextBtn = this.container.querySelector(nextBtnSelector);
-                this.currentIndex = 0;
-                this.init();
-            }
-            init() {
-                this.updateActiveItem();
-                this.bindEvents();
-            }
-            bindEvents() {
-                this.prevBtn.addEventListener('click', () => this.prev());
-                this.nextBtn.addEventListener('click', () => this.next());
-                this.dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => this.goTo(index));
-                });
-            }
-            updateActiveItem() {
-                this.items.forEach(item => item.classList.remove('active'));
-                this.dots.forEach(dot => dot.classList.remove('active'));
-                this.items[this.currentIndex].classList.add('active');
-                this.dots[this.currentIndex].classList.add('active');
-            }
-            prev() {
-                this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-                this.updateActiveItem();
-            }
-            next() {
-                this.currentIndex = (this.currentIndex + 1) % this.items.length;
-                this.updateActiveItem();
-            }
-            goTo(index) {
-                this.currentIndex = index;
-                this.updateActiveItem();
-            }
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            new Carousel('.tests-section', '.test-card', '#testDots', '#prevTestBtn', '#nextTestBtn');
+
+    <script src="script.js"></script>
+
+</section>
+    </div>
+                  <script>
+                              // script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Добавляем обработчик для ссылок "Подробнее"
+    const readMoreLinks = document.querySelectorAll('.read-more');
+    
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const card = this.closest('.test-card');
+            alert(`Вы выбрали тест: "${card.querySelector('h3').textContent}"`);
+            // Здесь можно добавить логику перехода на страницу теста
         });
-    </script>
+    });
+
+    // Адаптивность: проверяем ширину экрана и добавляем классы при необходимости
+    function checkResponsive() {
+        const container = document.querySelector('.tests-container');
+        if (window.innerWidth <= 768) {
+            container.classList.add('mobile-layout');
+        } else {
+            container.classList.remove('mobile-layout');
+        }
+    }
+
+    // Инициализация при загрузке
+    checkResponsive();
+
+    // Обновление при изменении размера окна
+    window.addEventListener('resize', checkResponsive);
+});
+
+
+              </script>
+
 </section>
 
 <!-- Testimonials Section -->
@@ -548,7 +529,7 @@
                     <div class="contact-label">Контакты:</div>
                     <div class="contact-links">
                         <a href="https://t.me/ayy_mir_zvukov" class="contact-link" target="_blank">Telegram: @ayy_mir_zvukov</a>
-                        <a href="https://vk.com/club233513055?from=groups" class="contact-link" target="_blank">VK: АУУ | Мир звуков</a>
+                        <a href="https://vk.com/club233563368" class="contact-link" target="_blank">VK: АУУ | Мир звуков</a>
                     </div>
                 </div>
                 <div class="subscription-box">

@@ -115,7 +115,7 @@
     }
 
     .nav {
-        display: none;
+        /* display: none; */
         position: absolute;
         top: 100%;
         left: 0;
@@ -354,4 +354,19 @@
     .copyright {
         font-size: 1.2vw;
     }
+
+    .hero-image {
+        display: none;
+    }
+
+    .hero-description {
+        width: 90%;
+    }
+
+    .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FAF3E8;
+}  
+
 }
