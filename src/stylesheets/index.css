@@ -548,11 +548,13 @@ body {
 .tg {
     position: relative;
     width: 5vw;
+    opacity: 0.85;
 }
 
 .vk {
     position: relative;
     width: 4vw;
+    opacity: 0.9;
 }
 
 .social {
@@ -625,7 +627,8 @@ body {
 }
 
 .box_fin {
-    margin-top: -0.5vw;
+    padding-top: 1vw;
+    /* margin-top: -1.5vw; */
 }
 
 
@@ -635,7 +638,7 @@ body {
     text-decoration: none;
     font-family: RalewayM;
     font-size: 0.8vw;
-    padding-left: 1.5vw;
+    padding-left: 2.5vw;
 }
 
 
