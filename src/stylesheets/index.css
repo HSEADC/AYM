@@ -519,12 +519,14 @@ body {
 /* FINAL */
 .section8_fin {
     width: 100vw;
-    height: 15vw;
+    height: 14vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #fin_plashka {
     width: 100vw;
-    height: 15vw;
+    height: 14vw;
     background-color: #182809;
     color: #FEFFFC;
     border-radius: 3vw 3vw 0vw 0vw;
@@ -538,7 +540,7 @@ body {
     position: absolute;
     text-decoration: none;
     color: #FEFFFC;
-    padding-top: 1vw;
+    padding-top: 0.5vw;
     padding-left: 3vw;
     font-family: Ruina;
     font-size: 2.5vw;
@@ -547,8 +549,8 @@ body {
 
 .tg {
     position: relative;
-    width: 5vw;
-    opacity: 0.85;
+    width: 4vw;
+    opacity: 0.85;    
 }
 
 .vk {
@@ -559,7 +561,7 @@ body {
 
 .social {
     position: absolute;
-    padding-top: 6vw;
+    padding-top: 5vw;
     padding-left: 2vw;
 }
 
@@ -568,7 +570,7 @@ body {
 }
 
 .vk1 {
-    width: 5vw;
+    width: 4vw;
 }
 
 .fin_plashka2 {
@@ -587,48 +589,20 @@ body {
     padding-left: 1.5vw;
 }
 
-.e-mail {
-    color: #FEFFFC;
-    text-decoration: none;
-    font-family: RalewayM;
-    font-size: 0.8vw;
-    padding-top: 0.4vw;
-    padding-left: 0.5vw;
-}
-
-#e-mail {
-    width: 15vw;
-    height: 2vw;
-    background-color: #b5b4b4;
-    border-radius: 0.6vw;
-}
-
 .btm_fin {
     width: 30vw;
     margin-top: 1vw;
     margin-left: 73.5vw;
 }
 
-.btm_fim {
-    position: absolute;
-    height: 2vw;
-    width: 6vw;text-decoration: none;
-    font-family: RalewayM;
-    font-size: 0.8vw;
-    padding-top: 0.2vw;
-    margin-top: -2vw;
-    margin-left: 16.2vw;
-}
-
 .line_fin {
     position: relative;
-    margin-top: 5vw;
+    margin-top: 7vw;
     color: #FEFFFC;
 }
 
 .box_fin {
     padding-top: 1vw;
-    /* margin-top: -1.5vw; */
 }
 
 
@@ -649,4 +623,73 @@ body {
     font-family: RalewayM;
     font-size: 0.8vw;
     margin-left: 88.5vw;
+}
+
+
+.btm_fin_podpis {
+    position: absolute;
+    width: 7.5vw;
+    height: 2.5vw;
+    background-color: #efefef;
+    margin-left: 23vw;
+    border-radius: 0.7vw;
+}
+
+.btm_fin_podpis1 {
+    position: absolute;
+    width: 13vw;
+    height: 2.5vw;
+    font-family: RalewaySB;
+    font-size: 0.9vw;
+    color: #111111;
+    text-decoration: none;
+    margin-top: -0.7vw;
+    margin-left: -6.5vw;
+}
+.btm_fin_podpis:hover {
+    background-color: rgb(123, 104, 75);
+}
+
+.btm_fin_podpis1:hover {
+    color: #efefef;
+}
+
+
+.card1 {
+    position: absolute;
+}
+
+.container333 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40vw;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: #151515;
+}
+
+.msg {
+    display: none;
+    color: rgb(231, 231, 231);
+    margin-top: 4vw;
+    border-color: #151515;
+}
+
+
+input[type="email"] {
+    width: 14vw;
+    height: 2.5vw;
+    padding: 1vw;
+    margin-bottom: 1.5vw;
+    background-color: #888888;
+    border-bottom-color: #e3e3e3;
+    color: #E4E4E4;
+    border: 0.1vw solid #ccc; 
+    border-radius: 0.7vw;
 }

@@ -15,14 +15,14 @@
             <a href="./index.html" class="logo">Purity of Aum</a>
             <div class="dropdown">
                 <a href="./pages/vzaim.html" class="q3" class="dropbtn">Взаимодействие</a>
-                <ul class="dropdown-content">
+                <!-- <ul class="dropdown-content">
                     <li><a href="#" class="">взаимодействие со звуком</a></li>
                     <li><a href="#" class="">практическая медитация</a></li>
                     <li><a href="#" class="">современные разработки</a></li>
                     <li><a href="#" class="">специалисты в области звука</a></li>
-                </ul>
+                </ul> -->
             </div>
-            <a href="./pages/tests.html" class="q4">Тесты</a>
+            <a href="" class="q4">Тесты</a>
         </div>
     </div>
 
@@ -179,12 +179,33 @@
                 <a href="./pages/zvuk.html" class="fin1">Звукотерапия</a>
                 <a href="./pages/articles.html" class="fin1">Статьи</a>
                 <a href="./pages/vzaim.html" class="fin1">Взаимодействия</a>
-                <a href="./pages/tests.html" class="fin1">Тесты</a>
+                <a href="" class="fin1">Тесты</a>
             </div> 
+
             <div class="btm_fin">
-                <p class="e-mail" id="e-mail">E-mail</p>
-                <button class="btm_fim">Подписаться</button>
+                <div class="card1">
+                    <form id="thanks" method="POST">
+                        <input type="email" name="email" 
+                        id="email" 
+                        placeholder="E-mail" 
+                        required>
+                        <button type="submit" class="btm_fin_podpis" id="btm_fin_podpis"><a href="" class="btm_fin_podpis1" id="btm_fin_podpis1">Подписаться</a></button>
+                    </form>
+                    <p class="msg" id="congo">Спасибо за подписку!</p>
+                </div>
             </div>
+
+            <script>
+                const form = document.getElementById("thanks");
+                const successMessage =
+                    document.getElementById("congo");
+
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    successMessage.style.display = "block";
+                });
+            </script>
+
              <hr class="line_fin">
             <div class="box_fin">
                 <p class="PoA">2026 Purity of Aum</p>
