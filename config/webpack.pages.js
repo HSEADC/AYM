@@ -10,7 +10,6 @@ filename: filename
 const htmlPages = [
 createPage('./src/index.html', './index.html'),
 createPage('./src/pages/articles.html', './pages/articles.html'),
-createPage('./src/pages/tests.html', './pages/tests.html'),
 createPage('./src/pages/articles2.html', './pages/articles2.html'),
 createPage('./src/pages/articles3.html', './pages/articles3.html'),
 createPage('./src/pages/articles4.html', './pages/articles4.html'),
@@ -21,6 +20,7 @@ createPage('./src/pages/vzaim3.html', './pages/vzaim3.html'),
 createPage('./src/pages/vzaim4.html', './pages/vzaim4.html'),
 createPage('./src/pages/vzaim5.html', './pages/vzaim5.html'),
 createPage('./src/pages/zvuk.html', './pages/zvuk.html'),
+createPage('./src/pages/tests.html', './pages/tests.html'),
 
 createPage('./src/articles/act1_1.html', './articles/act1_1.html'),
 createPage('./src/articles/act1_2.html', './articles/act1_2.html'),
