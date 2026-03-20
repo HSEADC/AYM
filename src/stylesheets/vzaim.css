@@ -1,3 +1,4 @@
+/* ГЛАВНАЯ */
 .section4_1 {
     width: 80vw;
     margin-top: 5vw;
@@ -46,4 +47,50 @@
     font-family: Raleway;
     font-size: 0.9vw;
     color: #252525;
+}
+
+
+/* ТЕХНИКИ МЕДИТАЦИИ */
+.section2_3 {
+    margin-top: -8vw;
+    font-family: Raleway;
+}
+
+.zk1_2 {
+    position: relative;
+    width: 60vw;
+    text-align: left;
+    font-family: RalewaySB;
+    font-size: 1.5vw;
+    border: 0.2vw;
+    padding-bottom: 1vw;
+}
+
+.zk5_1 {
+    position: relative;
+    width: 40vw;
+    margin-left: 20vw;
+    font-family: Raleway;
+    font-size: 1vw;
+    font-weight: 350;
+    padding-bottom: 0.5vw;
+}
+
+.zk5_11 {
+    position: relative;
+    /* width: 40vw;
+    margin-left: 20vw; */
+    font-family: Raleway;
+    font-size: 1vw;
+    font-weight: 350;
+    padding-bottom: 0.5vw;
+}
+
+.zk5_2 {
+    position: relative;
+    font-family: Raleway;
+    font-size: 1.2vw;
+    font-weight: 550;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
 }
