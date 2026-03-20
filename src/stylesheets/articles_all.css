@@ -10,6 +10,15 @@
     border: 0.2vw;
 }
 
+.zk1_11 {
+    position: relative;
+    width: 60vw;
+    font-family: RalewaySB;
+    text-align: center;
+    font-size: 1.8vw;
+    border: 0.2vw;
+}
+
 .zk1 {
     position: relative;
     width: 60vw;
@@ -20,12 +29,33 @@
     font-size: 1.4vw;
 }
 
+.zk4 {
+    position: relative;
+    width: 60vw;
+    padding-top: 0.3vw;
+    padding-bottom: 1vw;
+    text-align: justify;
+    font-family: RalewayM;
+    font-size: 1.2vw;
+}
+
 .zk {
     position: relative;
     width: 60vw;
     padding-bottom: 1vw;
     font-family: Raleway;
     font-size: 1vw;
+}
+
+.zk2 {
+    position: relative;
+    width: 40vw;
+    text-align: center;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-family: RalewayLI;
+    font-size: 1vw;
+    margin-left: 10vw;
 }
 
 .zk33 {

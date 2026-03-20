@@ -60,7 +60,7 @@ body {
 /* Секция 1 */
 .section1_glav {
     width: 100vw;
-    height: 55vw;
+    height: 60vw;
 }
 
 .glav_img2 {
@@ -182,7 +182,7 @@ body {
 
 .section2_purpose {
     width: 100vw;
-    height: 10vw;
+    height: 15vw;
     text-align: center;
 }
 
@@ -199,7 +199,7 @@ body {
 
 .section3_theath {
     width: 100vw;
-    height: 22vw;
+    height: 27vw;
 }
 
 .e1 {

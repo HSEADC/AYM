@@ -69,6 +69,13 @@
 }
 
 @font-face {
+    font-family: "RalewayLI";
+    src: url("../fonts/Raleway/Raleway-v4020-LightItalic.otf") format("opentype");
+    font-style: sb;
+    font-weight: 1.5vw;
+}
+
+@font-face {
     font-family: "SGrotesk";
     src: url("../fonts/SpaceGrotesk/SpaceGrotesk.ttf") format("truetype");
     font-style: regular;
