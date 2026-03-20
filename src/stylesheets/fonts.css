@@ -49,28 +49,28 @@
 
 @font-face {
     font-family: "Raleway";
-    src: url("../fonts/Raleway.ttf") format("truetype");
+    src: url("../fonts/Raleway/Raleway.ttf") format("truetype");
     font-style: regular;
     font-weight: 1.5vw;
 }
 
 @font-face {
     font-family: "RalewaySB";
-    src: url("../fonts/Raleway-v4020-SemiBold.otf") format("opentype");
+    src: url("../fonts/Raleway/Raleway-v4020-SemiBold.otf") format("opentype");
     font-style: sb;
     font-weight: 1.5vw;
 }
 
 @font-face {
     font-family: "RalewayM";
-    src: url("../fonts/Raleway-v4020-Medium.otf") format("opentype");
+    src: url("../fonts/Raleway/Raleway-v4020-Medium.otf") format("opentype");
     font-style: sb;
     font-weight: 1.5vw;
 }
 
 @font-face {
     font-family: "SGrotesk";
-    src: url("../fonts/SpaceGrotesk.ttf") format("truetype");
+    src: url("../fonts/SpaceGrotesk/SpaceGrotesk.ttf") format("truetype");
     font-style: regular;
     font-weight: 1.5vw;
 }
@@ -78,7 +78,14 @@
 
 @font-face {
     font-family: "Ruina";
-    src: url("../fonts/RainaPersonalUse.otf") format("opentype");
+    src: url("../fonts/Raina/RainaPersonalUse.otf") format("opentype");
+    font-style: regular;
+    font-weight: 1.5vw;
+}
+
+@font-face {
+    font-family: "Commissioner";
+    src: url("../fonts/Commissioner/Commissioner.ttf") format("truetype");
     font-style: regular;
     font-weight: 1.5vw;
 }
