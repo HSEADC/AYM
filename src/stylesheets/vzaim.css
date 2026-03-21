@@ -69,11 +69,13 @@
 .zk5_1 {
     position: relative;
     width: 40vw;
+    margin-top: -10.7vw;
     margin-left: 20vw;
     font-family: Raleway;
     font-size: 1vw;
     font-weight: 350;
     padding-bottom: 0.5vw;
+
 }
 
 .zk5_11 {
@@ -91,6 +93,31 @@
     font-family: Raleway;
     font-size: 1.2vw;
     font-weight: 550;
-    padding-top: 0.5vw;
+    padding-top: 2vw;
     padding-bottom: 0.5vw;
+}
+
+#img_med {
+    position: relative;
+    width: 17vw;
+    height: 10vw;
+    margin-top: 0.5vw;
+    background-color: #182809;
+}
+
+.btm_mix {
+    position: absolute;
+    margin-top: 11.5vw;
+    margin-left: -17vw;
+    border: 0;
+    background-color: #ffffff;
+    color: black;
+}
+
+.btm_mix1 {
+    font-family: Raleway;
+    font-size: 1.1vw;
+    font-weight: 550;
+    text-decoration: none;
+    color: rgb(2, 54, 11);
 }

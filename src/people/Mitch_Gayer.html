@@ -97,8 +97,8 @@
            <div class="fin_plashka1">
                 <a href="../index.html" class="logo22">Purity of Aum</a>
                 <div class="social">
-                    <a href="https://t.me/ayy_mir_zvukov" class="tg" target="_blank"><img src="../img/telegram.png" alt="" class="tg1"></a>
-                    <a href="https://vk.com/purity_of_aum" class="vk" target="_blank"><img src="../img/vk.png" alt="" class="vk"1></a>
+                    <a href="https://t.me/ayy_mir_zvukov" class="tg" target="_blank"><img src="../img/glav_pages/telegram.png" alt="" class="tg1"></a>
+                    <a href="https://vk.com/purity_of_aum" class="vk" target="_blank"><img src="../img/glav_pages/vk.png" alt="" class="vk"1></a>
                 </div>
                 
             </div>
@@ -106,15 +106,35 @@
                 <a href="../pages/zvuk.html" class="fin1">Звукотерапия</a>
                 <a href="../pages/articles.html" class="fin1">Статьи</a>
                 <a href="../pages/vzaim.html" class="fin1">Взаимодействия</a>
-                <a href="" class="fin1">Тесты</a>
+                <a href="../pages/tests.html" class="fin1">Тесты</a>
             </div> 
+
             <div class="btm_fin">
-                <p class="e-mail" id="e-mail">E-mail</p>
-                <button class="btm_fim">Подписаться</button>
+                <div class="card1">
+                    <form id="thanks" method="POST">
+                        <input type="email" name="email" 
+                        id="email" 
+                        placeholder="E-mail" 
+                        required>
+                        <button type="submit" class="btm_fin_podpis" id="btm_fin_podpis"><a href="" class="btm_fin_podpis1" id="btm_fin_podpis1">Подписаться</a></button>
+                    </form>
+                    <p class="msg" id="congo">Спасибо за подписку!</p>
+                </div>
             </div>
+
+            <script>
+                const form = document.getElementById("thanks");
+                const successMessage =
+                    document.getElementById("congo");
+
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    successMessage.style.display = "block";
+                });
+            </script>
+
              <hr class="line_fin">
             <div class="box_fin">
-                <!-- <img src="" alt=""> -->
                 <p class="PoA">2026 Purity of Aum</p>
                 <p class="NS">Настасья Судакова</p>
             </div>

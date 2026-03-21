@@ -55,12 +55,13 @@ body {
     padding-left: 3vw;
     font-family: Ruina;
     font-size: 1.7vw;
+    font-weight: 550;
 }
 
 /* Секция 1 */
 .section1_glav {
     width: 100vw;
-    height: 60vw;
+    height: 55vw;
 }
 
 .glav_img2 {
@@ -83,7 +84,7 @@ body {
     font-family: Commissioner;
     font-size: 1.2vw;
     color: #b4b6b1;
-    letter-spacing: 0.17vw;
+    letter-spacing: 0.1vw;
     margin-top: -48vw;
     margin-left: 6vw;
 }
@@ -182,7 +183,7 @@ body {
 
 .section2_purpose {
     width: 100vw;
-    height: 15vw;
+    height: 10vw;
     text-align: center;
 }
 
@@ -199,7 +200,7 @@ body {
 
 .section3_theath {
     width: 100vw;
-    height: 27vw;
+    height: 22vw;
 }
 
 .e1 {
@@ -210,8 +211,9 @@ body {
     position: absolute;
     width: 22vw;
     height: 13vw;
-    background-color: #182809;
-    background-image: url(../img/e2.png);
+    /* background-color: #182809; */
+    background-image: url(../img/glav_pages/e2.png);
+    background-repeat: no-repeat;
     border-radius: 0.5vw;
     box-shadow: 0.1vw 0.1vw 0.8vw 0.4vw #D9D9D9;
 }
@@ -244,7 +246,7 @@ body {
     width: 22vw;
     height: 13vw;
     background-color: #182809;
-    background-image: url(../img/e1.png);
+    background-image: url(../img/glav_pages/e1.png);
     border-radius: 0.5vw;
     box-shadow: 0.1vw 0.1vw 0.8vw 0.4vw #D9D9D9;
 }
@@ -277,7 +279,7 @@ body {
     width: 22vw;
     height: 13vw;
     background-color: #182809;
-    background-image: url(../img/e3.png);
+    background-image: url(../img/glav_pages/e3.png);
     border-radius: 0.5vw;
     box-shadow: 0.1vw 0.1vw 0.8vw 0.4vw #D9D9D9;
 }
@@ -427,7 +429,7 @@ body {
 #boxx2 {
     width: 23vw;
     height: 19vw;
-    background-color: #182809;
+    background-color: #242f05;
     border-color: #252525;
     border: 1vw;
     border-radius: 2vw;
@@ -526,7 +528,7 @@ body {
     width: 20vw;
     height: 10vw;
     margin-left: 13vw;
-    background-color: #182809;
+    background-color: #242f05;
 }
 
 .artic1_glav {
@@ -690,7 +692,7 @@ body {
     margin-left: -6.5vw;
 }
 .btm_fin_podpis:hover {
-    background-color: rgb(123, 104, 75);
+    background-color: rgb(84, 67, 41);
 }
 
 .btm_fin_podpis1:hover {
@@ -730,7 +732,7 @@ input[type="email"] {
     height: 2.5vw;
     padding: 1vw;
     margin-bottom: 1.5vw;
-    background-color: #888888;
+    background-color: #c3c2c2;
     border-bottom-color: #e3e3e3;
     color: #E4E4E4;
     border: 0.1vw solid #ccc; 
