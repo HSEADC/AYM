@@ -7,7 +7,8 @@ module.exports = {
   output: {
     path: path.resolve('.', 'docs'),
     filename: '[name].js',
-    clean: true
+    clean: true,
+    publicPath: './' 
   },
     module: {
     rules: [
