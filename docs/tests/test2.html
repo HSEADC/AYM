@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 2: Уровень эмоционального напряжения</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #1e3c1e;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d5a2d;
+        }
+        
+        .answers label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .answers label:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2d5a2d 0%, #1e3c1e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(30, 60, 30, 0.4);
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            border-radius: 15px;
+            border: 2px solid #2d5a2d;
+        }
+        
+        .result-title {
+            color: #1e3c1e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .result-program {
+            margin: 20px 0;
+        }
+        
+        .result-program h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .result-program ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .result-program li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .result-program li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2d5a2d, #1e3c1e);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .level-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .level {
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 0.85em;
+        }
+        
+        .level.active {
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .level-indicator {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Уровень эмоционального напряжения</h1>
+        <!-- <p class="subtitle">Purity of Aum - Оценка текущего состояния и звуковая коррекция</p> -->
+        
+        <div class="info-box">
+            <strong>📋 Инструкция:</strong> Оцените, насколько каждое утверждение соответствует вашему текущему состоянию за последние 2 недели. 
+            Выберите вариант ответа от «Постоянно» до «Никогда». Тест поможет определить уровень стресса 
+            и подобрать оптимальные практики звукотерапии.
+        </div>
+        
+        <form id="testForm">
+            <!-- Вопросы 1-5 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">1. Я чувствую внутреннее напряжение, даже когда нет очевидных причин для стресса.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q1" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q1" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q1" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q1" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">2. Мне трудно расслабиться и «отключить» поток мыслей.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q2" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q2" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q2" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q2" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">3. Я просыпаюсь ночью или мой сон поверхностный.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q3" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q3" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q3" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q3" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">4. Меня раздражают обычные звуки (разговоры, шум улицы).</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q4" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q4" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q4" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q4" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">5. Я чувствую физическое напряжение в теле (плечи, шея, челюсть).</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q5" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q5" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q5" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q5" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вопросы 6-10 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">6. Мне трудно сосредоточиться на одной задаче.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q6" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q6" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q6" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q6" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q6" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">7. Я чувствую эмоциональную истощенность к концу дня.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q7" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q7" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q7" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q7" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q7" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">8. У меня бывают приступы тревоги без видимой причины.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q8" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q8" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q8" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q8" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q8" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">9. Я чувствую, что «застрял» в негативных мыслях.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q9" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q9" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q9" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q9" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q9" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">10. Мне не хватает энергии даже на простые дела.</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q10" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q10" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q10" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q10" value="г"> г) Редко</label>
+                        <label><input type="radio" name="q10" value="д"> д) Никогда</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" onclick="calculateResult()">🎵 Получить результат</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const scoreValues = {
+            'а': 4,
+            'б': 3,
+            'в': 2,
+            'г': 1,
+            'д': 0
+        };
+
+        const levelDescriptions = {
+            'critical': {
+                name: 'КРИТИЧЕСКИЙ УРОВЕНЬ НАПРЯЖЕНИЯ',
+                range: '30-40 баллов',
+                description: 'Ваше эмоциональное состояние требует немедленного внимания.',
+                color: '#dc3545',
+                recommendations: [
+                    'Ежедневная звуковая ванна (30-45 минут) с тибетскими чашами и гонгом',
+                    'Бинауральные ритмы тета-диапазона (4-7 Гц) перед сном',
+                    'Низкочастотные вибрации (60-120 Гц) — диджериду, большие гонги',
+                    'Мантра «Ом» — 10-15 минут ежедневно'
+                ],
+                warning: 'Рассмотрите возможность консультации со специалистом по звукотерапии для индивидуальной программы.'
+            },
+            'elevated': {
+                name: 'ПОВЫШЕННОЕ НАПРЯЖЕНИЕ',
+                range: '20-29 баллов',
+                description: 'Вы находитесь в состоянии хронического стресса.',
+                color: '#fd7e14',
+                recommendations: [
+                    'Звуковая ванна 2-3 раза в неделю (45 минут)',
+                    'Терапия камертонами — работа с энергетическими центрами',
+                    'Вокальный тонинг — для высвобождения эмоциональных блоков',
+                    'Природные звуки (море, лес) — 20 минут ежедневно'
+                ],
+                warning: null
+            },
+            'moderate': {
+                name: 'УМЕРЕННОЕ НАПРЯЖЕНИЕ',
+                range: '10-19 баллов',
+                description: 'Ваш уровень стресса в пределах нормы, но требует профилактики.',
+                color: '#ffc107',
+                recommendations: [
+                    'Профилактические сеансы звукотерапии 1 раз в неделю',
+                    'Мантра-медитация или шаманское барабанение по выбору',
+                    'Бинауральные ритмы альфа-диапазона (8-13 Гц) для поддержания баланса'
+                ],
+                warning: null
+            },
+            'optimal': {
+                name: 'ОПТИМАЛЬНОЕ СОСТОЯНИЕ',
+                range: '0-9 баллов',
+                description: 'Ваше эмоциональное состояние сбалансировано.',
+                color: '#28a745',
+                recommendations: [
+                    'Поддерживающие практики 1-2 раза в месяц',
+                    'Разнообразьте практики — пробуйте новые инструменты',
+                    'Используйте звук для углубления медитации и творчества'
+                ],
+                warning: null
+            }
+        };
+
+        function calculateResult() {
+            let userAnswers = {};
+            let allAnswered = true;
+            let totalScore = 0;
+            
+            for (let i = 1; i <= 10; i++) {
+                let answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                userAnswers[i] = answer.value;
+                totalScore += scoreValues[answer.value];
+            }
+            
+            if (!allAnswered) {
+                alert('Пожалуйста, ответьте на все вопросы!');
+                return;
+            }
+            
+            // Определение уровня
+            let level = 'optimal';
+            if (totalScore >= 30) {
+                level = 'critical';
+            } else if (totalScore >= 20) {
+                level = 'elevated';
+            } else if (totalScore >= 10) {
+                level = 'moderate';
+            }
+            
+            const resultData = levelDescriptions[level];
+            const percentage = (totalScore / 40) * 100;
+            
+            let resultHTML = `
+                <div class="result-title" style="color: ${resultData.color}">🎵 ${resultData.name}</div>
+                <div class="score-display">
+                    <strong>${totalScore} из 40 баллов</strong>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${percentage}%; background: linear-gradient(90deg, ${resultData.color}, ${resultData.color})">${percentage}%</div>
+                </div>
+                <div class="level-indicator">
+                    <div class="level ${level === 'optimal' ? 'active' : ''}">Оптимальное<br>0-9</div>
+                    <div class="level ${level === 'moderate' ? 'active' : ''}">Умеренное<br>10-19</div>
+                    <div class="level ${level === 'elevated' ? 'active' : ''}">Повышенное<br>20-29</div>
+                    <div class="level ${level === 'critical' ? 'active' : ''}">Критическое<br>30-40</div>
+                </div>
+                <div class="result-program">
+                    <h3>📊 ${resultData.description}</h3>
+                    <p><strong>Диапазон:</strong> ${resultData.range}</p>
+                </div>
+                <div class="result-program">
+                    <h3>📋 Рекомендованные практики:</h3>
+                    <ul>
+                        ${resultData.recommendations.map(r => `<li>${r}</li>`).join('')}
+                    </ul>
+                </div>
+                ${resultData.warning ? `
+                <div class="warning-box">
+                    <h4>⚠️ Важно:</h4>
+                    <p>${resultData.warning}</p>
+                </div>
+                ` : ''}
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
