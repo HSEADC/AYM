@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 1: Тип личности</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #1e3c1e;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d5a2d;
+        }
+        
+        .answers label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .answers label:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2d5a2d 0%, #1e3c1e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(30, 60, 30, 0.4);
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            border-radius: 15px;
+            border: 2px solid #2d5a2d;
+        }
+        
+        .result-title {
+            color: #1e3c1e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .type-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .type {
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 0.85em;
+        }
+        
+        .type.active {
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        .result-program {
+            margin: 20px 0;
+        }
+        
+        .result-program h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .result-program ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .result-program li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .result-program li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+        }
+        
+        .instruments {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .instruments h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .instruments-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .instrument-tag {
+            background: #2d5a2d;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .recommendations {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .recommendations h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .type-indicator {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Ваш тип личности и идеальная звуковая практика</h1>
+        <p class="subtitle">Purity of Aum - Персонализированный подбор звукотерапии</p>
+        
+        <div class="info-box">
+            <strong>📋 Инструкция:</strong> Выберите вариант ответа, который наиболее точно описывает ваши предпочтения и особенности. 
+            На основе ваших ответов мы подберём оптимальные практики звукотерапии для вашего типа личности.
+        </div>
+        
+        <form id="testForm">
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">1. Как вы предпочитаете проводить свободное время?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="а"> а) В одиночестве, занимаясь творчеством или чтением</label>
+                        <label><input type="radio" name="q1" value="б"> б) В компании близких друзей, общаясь</label>
+                        <label><input type="radio" name="q1" value="в"> в) На природе, созерцая окружающий мир</label>
+                        <label><input type="radio" name="q1" value="г"> г) Занимаясь активными видами деятельности</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">2. Как вы реагируете на стресс?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="а"> а) Замыкаюсь в себе, нуждаюсь в тишине</label>
+                        <label><input type="radio" name="q2" value="б"> б) Ищу поддержки у близких, говорю о проблемах</label>
+                        <label><input type="radio" name="q2" value="в"> в) Выхожу на прогулку, переключаюсь на природу</label>
+                        <label><input type="radio" name="q2" value="г"> г) Занимаюсь спортом или активной деятельностью</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">3. Какой звук вам наиболее приятен?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="а"> а) Тихая классическая музыка или звуки природы</label>
+                        <label><input type="radio" name="q3" value="б"> б) Живое общение, смех, музыка с вокалом</label>
+                        <label><input type="radio" name="q3" value="в"> в) Шум леса, пение птиц, журчание воды</label>
+                        <label><input type="radio" name="q3" value="г"> г) Ритмичная, энергичная музыка</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">4. В какое время суток вы чувствуете себя наиболее комфортно?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="а"> а) Раннее утро или поздний вечер</label>
+                        <label><input type="radio" name="q4" value="б"> б) День, когда вокруг много людей</label>
+                        <label><input type="radio" name="q4" value="в"> в) Закат или рассвет</label>
+                        <label><input type="radio" name="q4" value="г"> г) Ночь, когда можно активно действовать</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">5. Как вы принимаете решения?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="а"> а) Долго обдумываю, прислушиваюсь к интуиции</label>
+                        <label><input type="radio" name="q5" value="б"> б) Советуюсь с окружающими</label>
+                        <label><input type="radio" name="q5" value="в"> в) Наблюдаю за ситуацией, затем действую</label>
+                        <label><input type="radio" name="q5" value="г"> г) Быстро, решительно</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">6. Какой цвет вам ближе?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q6" value="а"> а) Синий, фиолетовый</label>
+                        <label><input type="radio" name="q6" value="б"> б) Желтый, оранжевый</label>
+                        <label><input type="radio" name="q6" value="в"> в) Зеленый, коричневый</label>
+                        <label><input type="radio" name="q6" value="г"> г) Красный, черный</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">7. Как вы относитесь к изменениям?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q7" value="а"> а) Осторожно, нуждаюсь во времени для адаптации</label>
+                        <label><input type="radio" name="q7" value="б"> б) Положительно, если рядом поддержка</label>
+                        <label><input type="radio" name="q7" value="в"> в) Спокойно, как к естественному процессу</label>
+                        <label><input type="radio" name="q7" value="г"> г) С энтузиазмом, ищу новизну</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">8. Что для вас важнее в музыке?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q8" value="а"> а) Глубина и смысл</label>
+                        <label><input type="radio" name="q8" value="б"> б) Мелодичность и эмоциональность</label>
+                        <label><input type="radio" name="q8" value="в"> в) Естественность и гармония</label>
+                        <label><input type="radio" name="q8" value="г"> г) Ритм и энергия</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">9. Как вы восстанавливаете силы?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q9" value="а"> а) В тишине и покое</label>
+                        <label><input type="radio" name="q9" value="б"> б) В общении с людьми</label>
+                        <label><input type="radio" name="q9" value="в"> в) На природе</label>
+                        <label><input type="radio" name="q9" value="г"> г) Через физическую активность</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">10. Что вас больше всего раздражает?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q10" value="а"> а) Громкие резкие звуки</label>
+                        <label><input type="radio" name="q10" value="б"> б) Одиночество и тишина</label>
+                        <label><input type="radio" name="q10" value="в"> в) Ограничение свободы</label>
+                        <label><input type="radio" name="q10" value="г"> г) Монотонность и рутина</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" onclick="calculateResult()">🎵 Получить результат</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const typeDescriptions = {
+            'а': {
+                name: 'ИНТРОВЕРТ-МЫСЛИТЕЛЬ',
+                description: 'Ваш тип личности: глубокий, чувствительный, склонный к рефлексии.',
+                practices: [
+                    'Звуковая ванна с тибетскими поющими чашами (60-180 Гц) — низкие частоты помогут расслабиться без необходимости социального взаимодействия',
+                    'Бинауральные ритмы (альфа-диапазон 8-13 Гц) — для глубокой медитации в одиночестве',
+                    'Терапия камертонами — точечная работа с энергетическими центрами'
+                ],
+                recommendations: 'Избегайте громких коллективных практик. Вам подходят индивидуальные сеансы продолжительностью 45-60 минут в тихом помещении.',
+                instruments: ['Тибетские чаши', 'Бинауральные ритмы', 'Камертоны']
+            },
+            'б': {
+                name: 'ЭКСПРЕССИВНЫЙ СОЦИАЛ',
+                description: 'Ваш тип личности: эмоциональный, общительный, нуждающийся в контакте.',
+                practices: [
+                    'Мантра-медитация — групповое пение мантр (особенно «Ом») создаст чувство единства',
+                    'Вокальный тонинг — свободное звукоизвлечение в группе',
+                    'Шаманское барабанение — ритмичные практики в кругу единомышленников'
+                ],
+                recommendations: 'Выбирайте групповые форматы звукотерапии. Вам важны совместные практики продолжительностью 30-45 минут с возможностью обмена переживаниями.',
+                instruments: ['Поющие чаши', 'Барабаны', 'Флейты', 'Групповое пение']
+            },
+            'в': {
+                name: 'ГАРМОНИЧНЫЙ НАБЛЮДАТЕЛЬ',
+                description: 'Ваш тип личности: уравновешенный, созерцательный, близкий к природе.',
+                practices: [
+                    'Звуки природы в записи или на природе (шум моря, пение птиц, дождь)',
+                    'Флейта и духовые инструменты (240-2500 Гц) — средние и высокие частоты',
+                    'Экологическая медитация — практики на открытом воздухе'
+                ],
+                recommendations: 'Сочетайте звукотерапию с пребыванием на природе. Оптимальная продолжительность — 40-60 минут в естественной среде.',
+                instruments: ['Флейты', 'Кристаллические чаши', 'Записи природы']
+            },
+            'г': {
+                name: 'АКТИВНЫЙ ДЕЯТЕЛЬ',
+                description: 'Ваш тип личности: энергичный, решительный, ориентированный на действие.',
+                practices: [
+                    'Шаманское барабанение (4-7 ударов в секунду) — для входа в транс через активный ритм',
+                    'Гонг-медитация (24-66 Гц) — мощные вибрации для глубокой разрядки',
+                    'Активное вокальное тонирование — громкое, энергичное звукоизвлечение'
+                ],
+                recommendations: 'Вам подходят интенсивные практики продолжительностью 20-30 минут с возможностью активного участия. Чередуйте с периодами тишины для восстановления.',
+                instruments: ['Гонги', 'Большие барабаны', 'Активное вокализирование']
+            }
+        };
+
+        function calculateResult() {
+            let userAnswers = {};
+            let allAnswered = true;
+            let answerCounts = { 'а': 0, 'б': 0, 'в': 0, 'г': 0 };
+            
+            for (let i = 1; i <= 10; i++) {
+                let answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                userAnswers[i] = answer.value;
+                answerCounts[answer.value]++;
+            }
+            
+            if (!allAnswered) {
+                alert('Пожалуйста, ответьте на все вопросы!');
+                return;
+            }
+            
+            // Определение доминирующего типа
+            let dominantType = 'а';
+            let maxCount = 0;
+            
+            for (let type in answerCounts) {
+                if (answerCounts[type] > maxCount) {
+                    maxCount = answerCounts[type];
+                    dominantType = type;
+                }
+            }
+            
+            const resultData = typeDescriptions[dominantType];
+            
+            let resultHTML = `
+                <div class="result-title">🎵 Ваш тип: ${resultData.name}</div>
+                <div class="score-display">
+                    <p><strong>${resultData.description}</strong></p>
+                    <p>Распределение ответов: а=${answerCounts['а']}, б=${answerCounts['б']}, в=${answerCounts['в']}, г=${answerCounts['г']}</p>
+                </div>
+                <div class="type-indicator">
+                    <div class="type ${dominantType === 'а' ? 'active' : ''}">Интроверт<br>Мыслитель</div>
+                    <div class="type ${dominantType === 'б' ? 'active' : ''}">Экспрессивный<br>Социал</div>
+                    <div class="type ${dominantType === 'в' ? 'active' : ''}">Гармоничный<br>Наблюдатель</div>
+                    <div class="type ${dominantType === 'г' ? 'active' : ''}">Активный<br>Деятель</div>
+                </div>
+                <div class="result-program">
+                    <h3>📋 Рекомендованные практики:</h3>
+                    <ul>
+                        ${resultData.practices.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="instruments">
+                    <h3>🎼 Рекомендуемые инструменты:</h3>
+                    <div class="instruments-list">
+                        ${resultData.instruments.map(i => `<span class="instrument-tag">${i}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="recommendations">
+                    <h4>💡 Важные рекомендации:</h4>
+                    <p>${resultData.recommendations}</p>
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

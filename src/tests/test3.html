@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 3: Научная грамотность в звукотерапии</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #1e3c1e;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d5a2d;
+        }
+        
+        .answers label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .answers label:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2d5a2d 0%, #1e3c1e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(30, 60, 30, 0.4);
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            border-radius: 15px;
+            border: 2px solid #2d5a2d;
+        }
+        
+        .result-title {
+            color: #1e3c1e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .result-program {
+            margin: 20px 0;
+        }
+        
+        .result-program h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .result-program ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .result-program li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .result-program li:before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2d5a2d, #1e3c1e);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .level-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .level {
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        
+        .level.active {
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .level-indicator {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Научная грамотность в звукотерапии</h1>
+        <!-- <p class="subtitle">Purity of Aum - Проверьте свои знания о влиянии звука на организм</p> -->
+        
+        <div class="info-box">
+            <strong>📋 Инструкция:</strong> Выберите правильный ответ на каждый из 25 вопросов. 
+            Тест проверяет ваши знания о влиянии звука на организм, частотных диапазонах инструментов 
+            и научных основах звукотерапии.
+        </div>
+        
+        <form id="testForm">
+            <!-- Вопросы 1-5 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">1. Какой диапазон частот тибетских поющих чаш наиболее эффективен для воздействия на жидкие среды организма?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="а"> а) 60-180 Гц</label>
+                        <label><input type="radio" name="q1" value="б"> б) 500-1000 Гц</label>
+                        <label><input type="radio" name="q1" value="в"> в) 2000-4000 Гц</label>
+                        <label><input type="radio" name="q1" value="г"> г) 20-40 Гц</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">2. Что такое «симпатический резонанс»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="а"> а) Эмоциональная реакция на музыку</label>
+                        <label><input type="radio" name="q2" value="б"> б) Синхронизация двух вибрирующих тел без физического контакта</label>
+                        <label><input type="radio" name="q2" value="в"> в) Аллергическая реакция на звук</label>
+                        <label><input type="radio" name="q2" value="г"> г) Психологическая зависимость от музыки</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">3. Какой частотный диапазон соответствует тета-ритмам мозга?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="а"> а) 14-30 Гц</label>
+                        <label><input type="radio" name="q3" value="б"> б) 8-13 Гц</label>
+                        <label><input type="radio" name="q3" value="в"> в) 4-7 Гц</label>
+                        <label><input type="radio" name="q3" value="г"> г) 0.5-3 Гц</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">4. Что такое бинауральные ритмы?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="а"> а) Ритмичная музыка с двумя барабанами</label>
+                        <label><input type="radio" name="q4" value="б"> б) Фантомный ритм, создаваемый мозгом при подаче в каждое ухо звуков разной частоты</label>
+                        <label><input type="radio" name="q4" value="в"> в) Двойная доза звуковой терапии</label>
+                        <label><input type="radio" name="q4" value="г"> г) Ритм сердца при прослушивании музыки</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">5. Какой инструмент генерирует частоты 24-66 Гц?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="а"> а) Флейта</label>
+                        <label><input type="radio" name="q5" value="б"> б) Поющая чаша</label>
+                        <label><input type="radio" name="q5" value="в"> в) Гонг (20-22 дюйма)</label>
+                        <label><input type="radio" name="q5" value="г"> г) Камертон</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вопросы 6-10 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">6. Что такое «костная проводимость»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q6" value="а"> а) Передача звука через кости черепа непосредственно во внутреннее ухо</label>
+                        <label><input type="radio" name="q6" value="б"> б) Массаж костей звуковыми вибрациями</label>
+                        <label><input type="radio" name="q6" value="в"> в) Лечение переломов звуком</label>
+                        <label><input type="radio" name="q6" value="г"> г) Укрепление костей низкими частотами</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">7. Какой частотный диапазон диджериду?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q7" value="а"> а) 240-2500 Гц</label>
+                        <label><input type="radio" name="q7" value="б"> б) 50-200 Гц</label>
+                        <label><input type="radio" name="q7" value="в"> в) 432-440 Гц</label>
+                        <label><input type="radio" name="q7" value="г"> г) 87-246 Гц</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">8. Что такое «мелодия здоровья»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q8" value="а"> а) Популярная песня о здоровье</label>
+                        <label><input type="radio" name="q8" value="б"> б) Гармоничный резонанс оптимальных частот всего организма</label>
+                        <label><input type="radio" name="q8" value="в"> в) Музыкальная композиция для медитации</label>
+                        <label><input type="radio" name="q8" value="г"> г) Звуковая подпись клиники</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">9. Какой эффект оказывают негармонические обертоны (гонги, чаши)?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q9" value="а"> а) Вызывают головную боль</label>
+                        <label><input type="radio" name="q9" value="б"> б) Помогают «выключить» привычные программы психики и достичь измененных состояний сознания</label>
+                        <label><input type="radio" name="q9" value="в"> в) Усиливают стресс</label>
+                        <label><input type="radio" name="q9" value="г"> г) Не отличаются от гармонических обертонов</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">10. Что измеряется кожно-гальванической реакцией (КГР) в звукотерапии?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q10" value="а"> а) Температуру кожи</label>
+                        <label><input type="radio" name="q10" value="б"> б) Электрическое сопротивление кожи как показатель вегетативных реакций</label>
+                        <label><input type="radio" name="q10" value="в"> в) Влажность кожи</label>
+                        <label><input type="radio" name="q10" value="г"> г) Цвет кожи под воздействием звука</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вопросы 11-15 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">11. Какой частотный диапазон плоских колоколов?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q11" value="а"> а) 87-246 Гц (основной)</label>
+                        <label><input type="radio" name="q11" value="б"> б) 20-40 Гц</label>
+                        <label><input type="radio" name="q11" value="в"> в) 1000-2000 Гц</label>
+                        <label><input type="radio" name="q11" value="г"> г) 40-66 Гц</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">12. Что такое «ультразвуковая составляющая» в звукотерапии?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q12" value="а"> а) Очень громкий звук</label>
+                        <label><input type="radio" name="q12" value="б"> б) Неслышимая высокочастотная составляющая слабой интенсивности, повышающая иммунитет</label>
+                        <label><input type="radio" name="q12" value="в"> в) Усиленный бас</label>
+                        <label><input type="radio" name="q12" value="г"> г) Цифровая обработка звука</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">13. Какой инструмент воздействует на «верхние центры» и духовный мир?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q13" value="а"> а) Гонг</label>
+                        <label><input type="radio" name="q13" value="б"> б) Диджериду</label>
+                        <label><input type="radio" name="q13" value="в"> в) Флейта (240-2500 Гц)</label>
+                        <label><input type="radio" name="q13" value="г"> г) Большой барабан</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">14. Что такое «вибрационная биомеханика»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q14" value="а"> а) Механические вибрации в телефоне</label>
+                        <label><input type="radio" name="q14" value="б"> б) Индивидуальная система вибрационных процессов организма</label>
+                        <label><input type="radio" name="q14" value="в"> в) Вибрация мышц при физических упражнениях</label>
+                        <label><input type="radio" name="q14" value="г"> г) Механический массаж</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">15. Сколько времени требуется для стандартной «звуковой ванны»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q15" value="а"> а) 15-20 минут</label>
+                        <label><input type="radio" name="q15" value="б"> б) 60-75 минут</label>
+                        <label><input type="radio" name="q15" value="в"> в) 3-4 часа</label>
+                        <label><input type="radio" name="q15" value="г"> г) 5-10 минут</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вопросы 16-20 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">16. Что такое «интегральный белок-рецептор (ИМБ)»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q16" value="а"> а) Белковая добавка для музыкантов</label>
+                        <label><input type="radio" name="q16" value="б"> б) Молекулярная «наноантенна» клетки, настроенная на восприятие внешних сигналов</label>
+                        <label><input type="radio" name="q16" value="в"> в) Специальный белок для улучшения слуха</label>
+                        <label><input type="radio" name="q16" value="г"> г) Витаминный комплекс</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">17. Какой эффект оказывает звук 40-200 Гц на мезенхимальные стволовые клетки?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q17" value="а"> а) Уничтожает их</label>
+                        <label><input type="radio" name="q17" value="б"> б) Усиливает их пролиферативные свойства</label>
+                        <label><input type="radio" name="q17" value="в"> в) Не влияет</label>
+                        <label><input type="radio" name="q17" value="г"> г) Вызывает их мутацию</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">18. Что такое «акустический стресс»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q18" value="а"> а) Стресс от прослушивания громкой музыки</label>
+                        <label><input type="radio" name="q18" value="б"> б) Хроническое состояние, при котором нервная система теряет способность фильтровать входящие звуковые стимулы</label>
+                        <label><input type="radio" name="q18" value="в"> в) Аллергия на звук</label>
+                        <label><input type="radio" name="q18" value="г"> г) Страх перед громкими звуками</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">19. Какой диапазон частот кристаллических кварцевых чаш?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q19" value="а"> а) 60-180 Гц</label>
+                        <label><input type="radio" name="q19" value="б"> б) 432 Гц и 440 Гц</label>
+                        <label><input type="radio" name="q19" value="в"> в) 20-40 Гц</label>
+                        <label><input type="radio" name="q19" value="г"> г) 1000-2000 Гц</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">20. Что такое «звукотерапевтический дизайн»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q20" value="а"> а) Дизайн музыкальных инструментов</label>
+                        <label><input type="radio" name="q20" value="б"> б) Интеграция звуковых практик в архитектуру и интерьер для терапевтического эффекта</label>
+                        <label><input type="radio" name="q20" value="в"> в) Дизайн студий звукозаписи</label>
+                        <label><input type="radio" name="q20" value="г"> г) Оформление альбомов с музыкой</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вопросы 21-25 -->
+            <div class="question-block">
+                <div class="question">
+                    <div class="question-text">21. Какой ритм шаманского барабана соответствует тета-ритмам мозга?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q21" value="а"> а) 1-2 удара в секунду</label>
+                        <label><input type="radio" name="q21" value="б"> б) 4-7 ударов в секунду</label>
+                        <label><input type="radio" name="q21" value="в"> в) 10-15 ударов в секунду</label>
+                        <label><input type="radio" name="q21" value="г"> г) 20-30 ударов в секунду</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">22. Что такое «резонансная частота» органа?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q22" value="а"> а) Частота, на которой орган издает звук</label>
+                        <label><input type="radio" name="q22" value="б"> б) «Здоровая» частота колебаний, присущая органу от природы</label>
+                        <label><input type="radio" name="q22" value="в"> в) Частота медицинских приборов</label>
+                        <label><input type="radio" name="q22" value="г"> г) Частота пульса</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">23. Какой эффект оказывают низкие частоты (150 Гц и ниже)?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q23" value="а"> а) Только слуховой</label>
+                        <label><input type="radio" name="q23" value="б"> б) Более ценны для воздействия на жидкие среды и тело человека (массажный, вибрационный эффект)</label>
+                        <label><input type="radio" name="q23" value="в"> в) Вызывают головную боль</label>
+                        <label><input type="radio" name="q23" value="г"> г) Не отличаются от высоких частот</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">24. Что такое «нейроакустическая модуляция»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q24" value="а"> а) Модуляция голоса</label>
+                        <label><input type="radio" name="q24" value="б"> б) Использование звуковых технологий для изменения активности мозга</label>
+                        <label><input type="radio" name="q24" value="в"> в) Настройка музыкальных инструментов</label>
+                        <label><input type="radio" name="q24" value="г"> г) Цифровая обработка звука</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">25. Какой принцип лежит в основе работы ИЗРТ «АУМ»?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q25" value="а"> а) Усиление звука</label>
+                        <label><input type="radio" name="q25" value="б"> б) Создание интегрального виброакустического резонансного поля для самовосстановления организма</label>
+                        <label><input type="radio" name="q25" value="в"> в) Запись музыки</label>
+                        <label><input type="radio" name="q25" value="г"> г) Лечение глухоты</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" onclick="calculateResult()">🎵 Получить результат</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Правильные ответы
+        const correctAnswers = {
+            1: 'а', 2: 'б', 3: 'в', 4: 'б', 5: 'в',
+            6: 'а', 7: 'б', 8: 'б', 9: 'б', 10: 'б',
+            11: 'а', 12: 'б', 13: 'в', 14: 'б', 15: 'б',
+            16: 'б', 17: 'б', 18: 'б', 19: 'б', 20: 'б',
+            21: 'б', 22: 'б', 23: 'б', 24: 'б', 25: 'б'
+        };
+
+        const levelDescriptions = {
+            'expert': {
+                name: 'ЭКСПЕРТ',
+                range: '22-25 правильных ответов',
+                description: 'Вы обладаете глубокими знаниями в области звукотерапии!',
+                recommendations: [
+                    'Поделитесь своими знаниями с другими',
+                    'Экспериментируйте с продвинутыми техниками',
+                    'Рассмотрите возможность обучения как специалист'
+                ]
+            },
+            'advanced': {
+                name: 'ПРОДВИНУТЫЙ ПОЛЬЗОВАТЕЛЬ',
+                range: '17-21 правильный ответ',
+                description: 'Хороший уровень знаний!',
+                recommendations: [
+                    'Углубите знания в областях, где допустили ошибки',
+                    'Практикуйтесь регулярно',
+                    'Изучайте научные статьи о звукотерапии'
+                ]
+            },
+            'beginner': {
+                name: 'НАЧИНАЮЩИЙ ИССЛЕДОВАТЕЛЬ',
+                range: '11-16 правильных ответов',
+                description: 'У вас есть базовые знания, но есть куда расти.',
+                recommendations: [
+                    'Начните с базовых практик (звуковая ванна, мантры)',
+                    'Читайте образовательные материалы на сайте',
+                    'Посещайте вводные семинары'
+                ]
+            },
+            'novice': {
+                name: 'НОВИЧОК',
+                range: '0-10 правильных ответов',
+                description: 'Не переживайте! Звукотерапия — это увлекательная область.',
+                recommendations: [
+                    'Пройдите вводный курс по звукотерапии',
+                    'Начните с простых практик (природные звуки, тихая музыка)',
+                    'Запишитесь на пробный сеанс со специалистом'
+                ]
+            }
+        };
+
+        function calculateResult() {
+            let userAnswers = {};
+            let allAnswered = true;
+            let correctCount = 0;
+            let wrongAnswers = [];
+            
+            for (let i = 1; i <= 25; i++) {
+                let answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                userAnswers[i] = answer.value;
+                if (answer.value === correctAnswers[i]) {
+                    correctCount++;
+                } else {
+                    wrongAnswers.push(i);
+                }
+            }
+            
+            if (!allAnswered) {
+                alert('Пожалуйста, ответьте на все вопросы!');
+                return;
+            }
+            
+            // Определение уровня
+            let level = 'novice';
+            if (correctCount >= 22) {
+                level = 'expert';
+            } else if (correctCount >= 17) {
+                level = 'advanced';
+            } else if (correctCount >= 11) {
+                level = 'beginner';
+            }
+            
+            const resultData = levelDescriptions[level];
+            const percentage = (correctCount / 25) * 100;
+            
+            let resultHTML = `
+                <div class="result-title">🎵 Ваш результат: ${resultData.name}</div>
+                <div class="score-display">
+                    <strong>${correctCount} из 25 правильных ответов</strong>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${percentage}%">${percentage}%</div>
+                </div>
+                <div class="level-indicator">
+                    <div class="level ${level === 'novice' ? 'active' : ''}">Новичок<br>0-10</div>
+                    <div class="level ${level === 'beginner' ? 'active' : ''}">Начинающий<br>11-16</div>
+                    <div class="level ${level === 'advanced' ? 'active' : ''}">Продвинутый<br>17-21</div>
+                    <div class="level ${level === 'expert' ? 'active' : ''}">Эксперт<br>22-25</div>
+                </div>
+                <div class="result-program">
+                    <h3>📊 ${resultData.description}</h3>
+                    <p><strong>Диапазон:</strong> ${resultData.range}</p>
+                </div>
+                <div class="result-program">
+                    <h3>📋 Рекомендации:</h3>
+                    <ul>
+                        ${resultData.recommendations.map(r => `<li>${r}</li>`).join('')}
+                    </ul>
+                </div>
+                ${wrongAnswers.length > 0 ? `
+                <div class="result-program">
+                    <h3>⚠️ Вопросы для повторения:</h3>
+                    <p>Номера вопросов, где были допущены ошибки: ${wrongAnswers.join(', ')}</p>
+                </div>
+                ` : ''}
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

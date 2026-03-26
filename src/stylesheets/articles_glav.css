@@ -35,7 +35,7 @@
 
 .section3_1_arglav {
     width: 60vw;
-    margin-top: -9vw;
+    margin-top: -12vw;
     margin-left: 0vw;
 }
 
@@ -60,7 +60,8 @@
     font-family: RalewayM;
     font-size: 1vw;
     color: #000;
-
+    text-decoration: none;
+    text-align: left;
 }
 
 .bbox_text2 {

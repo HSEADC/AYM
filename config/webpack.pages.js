@@ -1,10 +1,50 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+// function createPage(template, filename) {
+// return new HtmlWebpackPlugin({
+// template: template,
+// filename: filename
+// })
+// }
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function createPage(template, filename) {
-return new HtmlWebpackPlugin({
-template: template,
-filename: filename
-})
+  // Если template не передан — пропускаем
+  if (!template) {
+    console.warn('⚠️ Пропущен template в createPage');
+    return [];
+  }
+
+  // Если filename не задан — генерируем его из пути template
+  if (!filename) {
+    filename = template
+      .replace('./src/', '')
+      .replace('./scr/', '')
+      .replace('.html', '')
+      .replace(/^\//, '');
+  } else {
+    // 🔧 Если filename передан — «чистим» его от ./ и лишних слешей
+    filename = filename
+      .replace(/^\.\//, '')  // убираем ./ в начале
+      .replace(/^\//, '')    // убираем / в начале, если есть
+      .replace(/\\/g, '/');  // заменяем обратные слеши на прямые (для Windows)
+  }
+
+  // Исправляем опечатки в пути к шаблону
+  const safeTemplate = template.replace('./scr/', './src/').replace('./ssrc/', './src/');
+
+  // Убеждаемся, что filename заканчивается на .html
+  if (!filename.endsWith('.html')) {
+    filename = filename + '.html';
+  }
+
+  console.log(`✓ Страница: ${filename} ← ${safeTemplate}`);
+
+  return new HtmlWebpackPlugin({
+    template: safeTemplate,
+    filename: filename
+  });
 }
 
 const htmlPages = [
@@ -14,6 +54,7 @@ createPage('./src/pages/articles2.html', './pages/articles2.html'),
 createPage('./src/pages/articles3.html', './pages/articles3.html'),
 createPage('./src/pages/articles4.html', './pages/articles4.html'),
 createPage('./src/pages/articles5.html', './pages/articles5.html'),
+createPage('./src/pages/articles6.html', './pages/articles6.html'),
 createPage('./src/pages/vzaim.html', './pages/vzaim.html'),
 createPage('./src/pages/vzaim2.html', './pages/vzaim2.html'),
 createPage('./src/pages/vzaim3.html', './pages/vzaim3.html'),
@@ -52,65 +93,65 @@ createPage('./src/articles3/art3_7.html', './articles3/art3_7.html'),
 createPage('./src/articles3/art3_8.html', './articles3/art3_8.html'),
 createPage('./src/articles3/art3_9.html', './articles3/art3_9.html'),
 
-createPage('./scr/development/1digital.html'),
-createPage('./scr/development/2neuroacoustic.html'),
-createPage('./scr/development/3integration.html'),
-createPage('./scr/development/4vibration.html'),
-createPage('./scr/development/5multimodal.html'),
-createPage('./scr/development/6global.html'),
+createPage('./src/development/1digital.html'),
+createPage('./src/development/2neuroacoustic.html'),
+createPage('./src/development/3integration.html'),
+createPage('./src/development/4vibration.html'),
+createPage('./src/development/5multimodal.html'),
+createPage('./src/development/6global.html'),
 
-createPage('./scr/interview/interview1.html'),
-createPage('./scr/interview/interview2.html'),
-createPage('./scr/interview/interview3.html'),
+createPage('./src/interview/interview1.html'),
+createPage('./src/interview/interview2.html'),
+createPage('./src/interview/interview3.html'),
 
-createPage('./scr/meditation/1Sound_bath.html'),
-createPage('./scr/meditation/2Mantra_maditation.html'),
-createPage('./scr/meditation/3Binaural_rhythms.html'),
-createPage('./scr/meditation/4Therapy_camberton.html'),
-createPage('./scr/meditation/5Vocaal_toning.html'),
-createPage('./scr/meditation/6Shamany_barabanenie.html'),
-createPage('./scr/meditation/7m.html'),
-createPage('./scr/meditation/8m.html'),
-createPage('./scr/meditation/9m.html'),
-createPage('./scr/meditation/10m.html'),
+createPage('./src/meditation/1Sound_bath.html'),
+createPage('./src/meditation/2Mantra_maditation.html'),
+createPage('./src/meditation/3Binaural_rhythms.html'),
+createPage('./src/meditation/4Therapy_camberton.html'),
+createPage('./src/meditation/5Vocaal_toning.html'),
+createPage('./src/meditation/6Shamany_barabanenie.html'),
+createPage('./src/meditation/7m.html'),
+createPage('./src/meditation/8m.html'),
+createPage('./src/meditation/9m.html'),
+createPage('./src/meditation/10m.html'),
 
-createPage('./scr/meditation_work'),
+// createPage('./src/meditation_work'),
 
-createPage('./scr/muzinst/1.html'),
-createPage('./scr/muzinst/2.html'),
-createPage('./scr/muzinst/3.html'),
-createPage('./scr/muzinst/4.html'),
-createPage('./scr/muzinst/5.html'),
-createPage('./scr/muzinst/6.html'),
-createPage('./scr/muzinst/7.html'),
-createPage('./scr/muzinst/8.html'),
-createPage('./scr/muzinst/9.html'),
-createPage('./scr/muzinst/10.html'),
-createPage('./scr/muzinst/11.html'),
-createPage('./scr/muzinst/12.html'),
-createPage('./scr/muzinst/13.html'),
-createPage('./scr/muzinst/14.html'),
-createPage('./scr/muzinst/15.html'),
+createPage('./src/muzinst/1.html'),
+createPage('./src/muzinst/2.html'),
+createPage('./src/muzinst/3.html'),
+createPage('./src/muzinst/4.html'),
+createPage('./src/muzinst/5.html'),
+createPage('./src/muzinst/6.html'),
+createPage('./src/muzinst/7.html'),
+createPage('./src/muzinst/8.html'),
+createPage('./src/muzinst/9.html'),
+createPage('./src/muzinst/10.html'),
+createPage('./src/muzinst/11.html'),
+createPage('./src/muzinst/12.html'),
+createPage('./src/muzinst/13.html'),
+createPage('./src/muzinst/14.html'),
+createPage('./src/muzinst/15.html'),
 
-createPage('./scr/people/Boris_Teplov.html'),
-createPage('./scr/people/Christian_Huygens.html'),
-createPage('./scr/people/Don_Campbell.html'),
-createPage('./scr/people/Fabien_Maman.html'),
-createPage('./scr/people/Mitch_Gayer.html'),
-createPage('./scr/people/Petr_Anokhin.html'),
-createPage('./scr/people/Tomatis_Alfred.html'),
-createPage('./scr/people/Valeriy_Chkalov.html'),
-createPage('./scr/people/Vladimir_Bechterev.html'),
+createPage('./src/people/Boris_Teplov.html'),
+createPage('./src/people/Christian_Huygens.html'),
+createPage('./src/people/Don_Campbell.html'),
+createPage('./src/people/Fabien_Maman.html'),
+createPage('./src/people/Mitch_Gayer.html'),
+createPage('./src/people/Petr_Anokhin.html'),
+createPage('./src/people/Tomatis_Alfred.html'),
+createPage('./src/people/Valeriy_Chkalov.html'),
+createPage('./src/people/Vladimir_Bechterev.html'),
 
-createPage('./scr/tests/test1.html'),
-createPage('./scr/tests/test2.html'),
-createPage('./scr/tests/test3.html'),
-createPage('./scr/tests/test4.html'),
-createPage('./scr/tests/test5.html'),
-createPage('./scr/tests/test6.html'),
-createPage('./scr/tests/test7.html'),
-createPage('./scr/tests/test8.html'),
-createPage('./scr/tests/test9.html'),
+createPage('./src/tests/test1.html'),
+createPage('./src/tests/test2.html'),
+createPage('./src/tests/test3.html'),
+createPage('./src/tests/test4.html'),
+createPage('./src/tests/test5.html'),
+createPage('./src/tests/test6.html'),
+createPage('./src/tests/test7.html'),
+createPage('./src/tests/test8.html'),
+createPage('./src/tests/test9.html'),
 
 // createPage(),
 // createPage(),

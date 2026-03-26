@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 4: Персонализированная программа звукотерапии</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #1e3c1e;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .question-block {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .block-title {
+            color: #1e3c1e;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d5a2d;
+        }
+        
+        .answers label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .answers label:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2d5a2d 0%, #1e3c1e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(30, 60, 30, 0.4);
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
+            border-radius: 15px;
+            border: 2px solid #2d5a2d;
+        }
+        
+        .result-title {
+            color: #1e3c1e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .result-program {
+            margin: 20px 0;
+        }
+        
+        .result-program h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .result-program ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .result-program li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .result-program li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+        }
+        
+        .instruments {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .instruments h3 {
+            color: #2d5a2d;
+            margin-bottom: 10px;
+        }
+        
+        .instruments-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .instrument-tag {
+            background: #2d5a2d;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2d5a2d, #1e3c1e);
+            transition: width 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Комплексный анализ звуковых предпочтений</h1>
+        <!-- <p class="subtitle">Purity of Aum - Персонализированная программа звукотерапии</p> -->
+        
+        <form id="testForm">
+            <!-- Блок 1: Физиологические параметры -->
+            <div class="question-block">
+                <div class="block-title">Блок 1: Физиологические параметры</div>
+                
+                <div class="question">
+                    <div class="question-text">1. Как вы реагируете на громкие резкие звуки?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="а"> а) Испытываю физический дискомфорт, напряжение в теле</label>
+                        <label><input type="radio" name="q1" value="б"> б) Раздражаюсь, но могу терпеть</label>
+                        <label><input type="radio" name="q1" value="в"> в) Практически не реагирую</label>
+                        <label><input type="radio" name="q1" value="г"> г) Мне нравятся энергичные громкие звуки</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">2. Есть ли у вас хронические боли или мышечное напряжение?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="а"> а) Да, постоянные</label>
+                        <label><input type="radio" name="q2" value="б"> б) Периодические</label>
+                        <label><input type="radio" name="q2" value="в"> в) Редко</label>
+                        <label><input type="radio" name="q2" value="г"> г) Нет</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">3. Как вы оцениваете качество своего сна?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="а"> а) Плохо, часто просыпаюсь</label>
+                        <label><input type="radio" name="q3" value="б"> б) Удовлетворительно</label>
+                        <label><input type="radio" name="q3" value="в"> в) Хорошо</label>
+                        <label><input type="radio" name="q3" value="г"> г) Отлично</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">4. Испытываете ли вы усталость к середине дня?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q4" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q4" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q4" value="г"> г) Редко</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">5. Есть ли у вас повышенная чувствительность к звукам?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="а"> а) Да, меня раздражают обычные бытовые звуки</label>
+                        <label><input type="radio" name="q5" value="б"> б) Иногда</label>
+                        <label><input type="radio" name="q5" value="в"> в) Редко</label>
+                        <label><input type="radio" name="q5" value="г"> г) Нет</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 2: Эмоциональное состояние -->
+            <div class="question-block">
+                <div class="block-title">Блок 2: Эмоциональное состояние</div>
+                
+                <div class="question">
+                    <div class="question-text">6. Как часто вы испытываете тревогу?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q6" value="а"> а) Постоянно</label>
+                        <label><input type="radio" name="q6" value="б"> б) Часто</label>
+                        <label><input type="radio" name="q6" value="в"> в) Иногда</label>
+                        <label><input type="radio" name="q6" value="г"> г) Редко</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">7. Насколько вы удовлетворены своим эмоциональным состоянием?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q7" value="а"> а) Совсем не удовлетворен</label>
+                        <label><input type="radio" name="q7" value="б"> б) Частично</label>
+                        <label><input type="radio" name="q7" value="в"> в) В целом доволен</label>
+                        <label><input type="radio" name="q7" value="г"> г) Полностью удовлетворен</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">8. Как вы справляетесь со стрессом?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q8" value="а"> а) С трудом, долго восстанавливаюсь</label>
+                        <label><input type="radio" name="q8" value="б"> б) Справляюсь, но с усилиями</label>
+                        <label><input type="radio" name="q8" value="в"> в) Довольно легко</label>
+                        <label><input type="radio" name="q8" value="г"> г) Очень легко</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">9. Испытываете ли вы эмоциональное выгорание?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q9" value="а"> а) Да, постоянно</label>
+                        <label><input type="radio" name="q9" value="б"> б) Иногда</label>
+                        <label><input type="radio" name="q9" value="в"> в) Редко</label>
+                        <label><input type="radio" name="q9" value="г"> г) Нет</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">10. Насколько вы открыты для новых переживаний?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q10" value="а"> а) Очень осторожен</label>
+                        <label><input type="radio" name="q10" value="б"> б) Умеренно открыт</label>
+                        <label><input type="radio" name="q10" value="в"> в) Довольно открыт</label>
+                        <label><input type="radio" name="q10" value="г"> г) Очень открыт</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 3: Звуковые предпочтения -->
+            <div class="question-block">
+                <div class="block-title">Блок 3: Звуковые предпочтения</div>
+                
+                <div class="question">
+                    <div class="question-text">11. Какой тип музыки вы предпочитаете для релаксации?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q11" value="а"> а) Классическая, инструментальная</label>
+                        <label><input type="radio" name="q11" value="б"> б) Природные звуки</label>
+                        <label><input type="radio" name="q11" value="в"> в) Этническая, мантры</label>
+                        <label><input type="radio" name="q11" value="г"> г) Эмбиент, электронная</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">12. Какие частоты вам приятнее?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q12" value="а"> а) Низкие (басы, гул)</label>
+                        <label><input type="radio" name="q12" value="б"> б) Средние (голос, большинство инструментов)</label>
+                        <label><input type="radio" name="q12" value="в"> в) Высокие (флейта, колокольчики)</label>
+                        <label><input type="radio" name="q12" value="г"> г) Мне все равно</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">13. Предпочитаете ли вы тишину или фоновый звук?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q13" value="а"> а) Абсолютную тишину</label>
+                        <label><input type="radio" name="q13" value="б"> б) Тихий фоновый звук</label>
+                        <label><input type="radio" name="q13" value="в"> в) Умеренный звук</label>
+                        <label><input type="radio" name="q13" value="г"> г) Громкую музыку</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">14. Как вы относитесь к групповым звуковым практикам?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q14" value="а"> а) Предпочитаю индивидуальные</label>
+                        <label><input type="radio" name="q14" value="б"> б) Нейтрально</label>
+                        <label><input type="radio" name="q14" value="в"> в) Нравятся групповые</label>
+                        <label><input type="radio" name="q14" value="г"> г) Очень люблю групповые практики</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">15. Готовы ли вы экспериментировать с необычными звуками?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q15" value="а"> а) Нет, предпочитаю проверенное</label>
+                        <label><input type="radio" name="q15" value="б"> б) С осторожностью</label>
+                        <label><input type="radio" name="q15" value="в"> в) Да, открыт к новому</label>
+                        <label><input type="radio" name="q15" value="г"> г) Очень люблю эксперименты</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 4: Образ жизни -->
+            <div class="question-block">
+                <div class="block-title">Блок 4: Образ жизни</div>
+                
+                <div class="question">
+                    <div class="question-text">16. Сколько времени в день вы можете уделить практикам?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q16" value="а"> а) Менее 15 минут</label>
+                        <label><input type="radio" name="q16" value="б"> б) 15-30 минут</label>
+                        <label><input type="radio" name="q16" value="в"> в) 30-60 минут</label>
+                        <label><input type="radio" name="q16" value="г"> г) Более часа</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">17. Где вы предпочитаете практиковаться?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q17" value="а"> а) Дома в одиночестве</label>
+                        <label><input type="radio" name="q17" value="б"> б) На природе</label>
+                        <label><input type="radio" name="q17" value="в"> в) В студии с другими</label>
+                        <label><input type="radio" name="q17" value="г"> г) В любом месте</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">18. Как часто вы занимаетесь медитацией/релаксацией?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q18" value="а"> а) Никогда</label>
+                        <label><input type="radio" name="q18" value="б"> б) Редко</label>
+                        <label><input type="radio" name="q18" value="в"> в) Несколько раз в неделю</label>
+                        <label><input type="radio" name="q18" value="г"> г) Ежедневно</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">19. Ведете ли вы здоровый образ жизни?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q19" value="а"> а) Нет</label>
+                        <label><input type="radio" name="q19" value="б"> б) Стараюсь</label>
+                        <label><input type="radio" name="q19" value="в"> в) Да, в целом</label>
+                        <label><input type="radio" name="q19" value="г"> г) Да, полностью</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">20. Есть ли у вас опыт восточных практик?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q20" value="а"> а) Нет</label>
+                        <label><input type="radio" name="q20" value="б"> б) Минимальный</label>
+                        <label><input type="radio" name="q20" value="в"> в) Есть опыт</label>
+                        <label><input type="radio" name="q20" value="г"> г) Практикую регулярно</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 5: Цели и ожидания -->
+            <div class="question-block">
+                <div class="block-title">Блок 5: Цели и ожидания</div>
+                
+                <div class="question">
+                    <div class="question-text">21. Какова ваша главная цель в звукотерапии?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q21" value="а"> а) Снятие стресса</label>
+                        <label><input type="radio" name="q21" value="б"> б) Улучшение сна</label>
+                        <label><input type="radio" name="q21" value="в"> в) Духовное развитие</label>
+                        <label><input type="radio" name="q21" value="г"> г) Физическое исцеление</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">22. Насколько вы верите в эффективность звукотерапии?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q22" value="а"> а) Скептически</label>
+                        <label><input type="radio" name="q22" value="б"> б) Нейтрально</label>
+                        <label><input type="radio" name="q22" value="в"> в) Положительно</label>
+                        <label><input type="radio" name="q22" value="г"> г) Полностью верю</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">23. Готовы ли вы к регулярным практикам?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q23" value="а"> а) Нет</label>
+                        <label><input type="radio" name="q23" value="б"> б) Возможно</label>
+                        <label><input type="radio" name="q23" value="в"> в) Да</label>
+                        <label><input type="radio" name="q23" value="г"> г) Уже практикую регулярно</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">24. Что для вас важнее — процесс или результат?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q24" value="а"> а) Результат</label>
+                        <label><input type="radio" name="q24" value="б"> б) Скорее результат</label>
+                        <label><input type="radio" name="q24" value="в"> в) Скорее процесс</label>
+                        <label><input type="radio" name="q24" value="г"> г) Процесс</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">25. Ищете ли вы быстрые решения или долгосрочные изменения?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q25" value="а"> а) Быстрые</label>
+                        <label><input type="radio" name="q25" value="б"> б) Скорее быстрые</label>
+                        <label><input type="radio" name="q25" value="в"> в) Скорее долгосрочные</label>
+                        <label><input type="radio" name="q25" value="г"> г) Долгосрочные</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 6: Физическая активность -->
+            <div class="question-block">
+                <div class="block-title">Блок 6: Физическая активность</div>
+                
+                <div class="question">
+                    <div class="question-text">26. Насколько вы физически активны?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q26" value="а"> а) Малоподвижен</label>
+                        <label><input type="radio" name="q26" value="б"> б) Умеренно активен</label>
+                        <label><input type="radio" name="q26" value="в"> в) Довольно активен</label>
+                        <label><input type="radio" name="q26" value="г"> г) Очень активен</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">27. Предпочитаете ли вы пассивные или активные практики?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q27" value="а"> а) Только пассивные (лежать и слушать)</label>
+                        <label><input type="radio" name="q27" value="б"> б) Скорее пассивные</label>
+                        <label><input type="radio" name="q27" value="в"> в) Скорее активные</label>
+                        <label><input type="radio" name="q27" value="г"> г) Только активные (петь, двигаться)</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">28. Есть ли у вас ограничения по здоровью?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q28" value="а"> а) Да, серьезные</label>
+                        <label><input type="radio" name="q28" value="б"> б) Есть небольшие</label>
+                        <label><input type="radio" name="q28" value="в"> в) Практически нет</label>
+                        <label><input type="radio" name="q28" value="г"> г) Нет</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">29. Как вы относитесь к работе с телом через звук?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q29" value="а"> а) Скептически</label>
+                        <label><input type="radio" name="q29" value="б"> б) Нейтрально</label>
+                        <label><input type="radio" name="q29" value="в"> в) Положительно</label>
+                        <label><input type="radio" name="q29" value="г"> г) Очень положительно</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">30. Готовы ли вы сочетать звукотерапию с другими практиками?</div>
+                    <div class="answers">
+                        <label><input type="radio" name="q30" value="а"> а) Нет</label>
+                        <label><input type="radio" name="q30" value="б"> б) Возможно</label>
+                        <label><input type="radio" name="q30" value="в"> в) Да</label>
+                        <label><input type="radio" name="q30" value="г"> г) Уже сочетаю</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" onclick="calculateResult()">🎵 Получить результат</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const scoreValues = {
+            'а': 4,
+            'б': 3,
+            'в': 2,
+            'г': 1
+        };
+
+        const blocks = {
+            stress: { questions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], weight: 2.0 },
+            sound: { questions: [11, 12, 13, 14, 15], weight: 1.5 },
+            lifestyle: { questions: [16, 17, 18, 19, 20], weight: 1.0 },
+            motivation: { questions: [21, 22, 23, 24, 25], weight: 1.0 },
+            physical: { questions: [26, 27, 28, 29, 30], weight: 1.5 }
+        };
+
+        const typeDescriptions = {
+            'type1': {
+                name: 'ИЩУЩИЙ ПОКОЯ',
+                program: [
+                    'Недели 1-2: Ежедневная звуковая ванна (30 мин) с тибетскими чашами 60-120 Гц',
+                    'Недели 3-4: Добавление бинауральных ритмов тета-диапазона перед сном',
+                    'Недели 5-8: Введение мантры «Ом» (10 мин ежедневно)',
+                    'Долгосрочно: Переход на поддерживающий режим 2-3 раза в неделю'
+                ],
+                instruments: ['Большие гонги (24-42 Гц)', 'Тибетские чаши', 'Диджериду']
+            },
+            'type2': {
+                name: 'ЭМОЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬ',
+                program: [
+                    'Недели 1-2: Групповая мантра-медитация 2 раза в неделю',
+                    'Недели 3-4: Вокальный тонинг (свободное звукоизвлечение)',
+                    'Недели 5-8: Шаманское барабанение в группе',
+                    'Долгосрочно: Чередование различных практик для поддержания интереса'
+                ],
+                instruments: ['Поющие чаши', 'Барабаны', 'Флейты', 'Групповое пение']
+            },
+            'type3': {
+                name: 'ПРИРОДНЫЙ РЕЗОНАНС',
+                program: [
+                    'Недели 1-2: Звуки природы + флейта (240-2500 Гц)',
+                    'Недели 3-4: Экологическая медитация на природе',
+                    'Недели 5-8: Кристаллические чаши (432 Гц)',
+                    'Долгосрочно: Интеграция звукотерапии с пребыванием на природе'
+                ],
+                instruments: ['Флейты', 'Кристаллические чаши', 'Записи природы']
+            },
+            'type4': {
+                name: 'АКТИВНЫЙ ТРАНСФОРМЕР',
+                program: [
+                    'Недели 1-2: Активное шаманское барабанение (игрок сам бьет)',
+                    'Недели 3-4: Громкий вокальный тонинг, мычание',
+                    'Недели 5-8: Мощные гонг-сессии (20-30 мин)',
+                    'Долгосрочно: Чередование интенсивных практик с периодами тишины'
+                ],
+                instruments: ['Гонги', 'Большие барабаны', 'Активное вокализирование']
+            },
+            'type5': {
+                name: 'БАЛАНСИРУЮЩИЙ',
+                program: [
+                    'Недели 1-2: Профилактическая звуковая ванна (45 мин) 1 раз в неделю',
+                    'Недели 3-4: Эксперименты с различными инструментами',
+                    'Недели 5-8: Углубление в наиболее резонирующую практику',
+                    'Долгосрочно: Поддерживающие сеансы 1-2 раза в месяц'
+                ],
+                instruments: ['Все виды инструментов по выбору']
+            }
+        };
+
+        function calculateBlockScores(userAnswers) {
+            let blockScores = {};
+            for (let block in blocks) {
+                let totalScore = 0;
+                blocks[block].questions.forEach(qNum => {
+                    totalScore += scoreValues[userAnswers[qNum]] || 0;
+                });
+                blockScores[block] = totalScore * blocks[block].weight;
+            }
+            return blockScores;
+        }
+
+        function hasVariedPreferences(userAnswers) {
+            let soundAnswers = [userAnswers[11], userAnswers[12], userAnswers[13], userAnswers[14], userAnswers[15]];
+            let uniqueAnswers = new Set(soundAnswers).size;
+            return uniqueAnswers >= 3;
+        }
+
+        function determinePersonalityType(blockScores, userAnswers) {
+            let typeScores = {
+                type1: 0,
+                type2: 0,
+                type3: 0,
+                type4: 0,
+                type5: 0
+            };
+
+            if (blockScores.stress > 30 && userAnswers[12] === 'а' && (userAnswers[27] === 'а' || userAnswers[27] === 'б')) {
+                typeScores.type1 += 100;
+            }
+
+            if (blockScores.stress >= 20 && blockScores.stress <= 30 && 
+                (userAnswers[10] === 'в' || userAnswers[10] === 'г') &&
+                (userAnswers[14] === 'в' || userAnswers[14] === 'г')) {
+                typeScores.type2 += 100;
+            }
+
+            if (blockScores.stress < 20 && userAnswers[11] === 'б' && 
+                (userAnswers[14] === 'а' || userAnswers[14] === 'б')) {
+                typeScores.type3 += 100;
+            }
+
+            if (blockScores.stress > 25 && 
+                (userAnswers[27] === 'в' || userAnswers[27] === 'г') &&
+                userAnswers[8] === 'г') {
+                typeScores.type4 += 100;
+            }
+
+            if (blockScores.stress < 20 && hasVariedPreferences(userAnswers)) {
+                typeScores.type5 += 100;
+            }
+
+            typeScores.type1 += blockScores.physical * 0.5;
+            typeScores.type2 += blockScores.motivation * 0.5;
+            typeScores.type3 += blockScores.sound * 0.5;
+            typeScores.type4 += blockScores.physical * 0.5;
+            typeScores.type5 += (blockScores.lifestyle + blockScores.motivation) * 0.3;
+
+            return typeScores;
+        }
+
+        function getFinalType(typeScores) {
+            let maxScore = 0;
+            let finalType = 'type5';
+            
+            for (let type in typeScores) {
+                if (typeScores[type] > maxScore) {
+                    maxScore = typeScores[type];
+                    finalType = type;
+                }
+            }
+            
+            return finalType;
+        }
+
+        function calculateResult() {
+            let userAnswers = {};
+            let allAnswered = true;
+            
+            for (let i = 1; i <= 30; i++) {
+                let answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                userAnswers[i] = answer.value;
+            }
+            
+            if (!allAnswered) {
+                alert('Пожалуйста, ответьте на все вопросы!');
+                return;
+            }
+            
+            const blockScores = calculateBlockScores(userAnswers);
+            const typeScores = determinePersonalityType(blockScores, userAnswers);
+            const finalType = getFinalType(typeScores);
+            const result = typeDescriptions[finalType];
+            
+            let resultHTML = `
+                <div class="result-title">🎵 Ваш тип: ${result.name}</div>
+                <div class="result-program">
+                    <h3>📋 Рекомендованная программа:</h3>
+                    <ul>
+                        ${result.program.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="instruments">
+                    <h3>🎼 Рекомендуемые инструменты:</h3>
+                    <div class="instruments-list">
+                        ${result.instruments.map(i => `<span class="instrument-tag">${i}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
