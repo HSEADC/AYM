@@ -3,81 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <title>Тест 1: Тип личности</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 100%);
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
         .container {
             max-width: 900px;
             margin: 0 auto;
             background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            padding: 40px;
+            border-radius: 1.5vw;
+            box-shadow: 0 1vw 4vw rgba(0,0,0,0.3);
+            padding: 4vw;
+            margin-top: 3vw;
+            font-family: Raleway;
         }
         
         h1 {
             color: #1e3c1e;
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 2em;
+            margin-bottom: 1vw;
+            font-size: 1.5vw;
+            font-weight: 500vw;
+            padding-bottom: 1vw;
         }
         
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 3vw;
             font-style: italic;
         }
         
         .info-box {
             background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid #2d5a2d;
+            padding: 2vw;
+            border-radius: 1vw;
+            margin-bottom: 3vw;
+            border-left: 0.4vw solid #2d5a2d;
         }
         
         .question-block {
-            margin-bottom: 25px;
-            padding: 20px;
+            margin-bottom: 2.5vw;
+            padding: 2vw;
             background: #f9f9f9;
-            border-radius: 10px;
-            border-left: 4px solid #2d5a2d;
+            border-radius: 1vw;
+            border-left: 0.4vw solid #2d5a2d;
         }
         
         .question {
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 2vw;
+            padding: 1.5vw;
             background: white;
-            border-radius: 8px;
+            border-radius: 0.8vw;
         }
         
         .question-text {
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 1vw;
             color: #2d5a2d;
         }
         
         .answers label {
             display: block;
-            padding: 10px;
-            margin: 5px 0;
+            padding: 1vw;
+            margin: 0.5vw;
             background: #f0f0f0;
-            border-radius: 5px;
+            border-radius: 0.5vw;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -88,59 +78,59 @@
         }
         
         input[type="radio"] {
-            margin-right: 10px;
+            margin-right: 1vw;
         }
         
         .btn {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 1.5vw;
             background: linear-gradient(135deg, #2d5a2d 0%, #1e3c1e 100%);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 1vw;
             font-size: 1.2em;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 30px;
+            margin-top: 3vw;
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(30, 60, 30, 0.4);
+            box-shadow: 0 0.5vw 2vw rgba(30, 60, 30, 0.4);
         }
         
         .result {
             display: none;
-            margin-top: 30px;
-            padding: 30px;
+            margin-top: 3vw;
+            padding: 3vw;
             background: linear-gradient(135deg, #f0f9f0 0%, #e0f0e0 100%);
-            border-radius: 15px;
-            border: 2px solid #2d5a2d;
+            border-radius: 1.5vw;
+            border: 0.2vw solid #2d5a2d;
         }
         
         .result-title {
             color: #1e3c1e;
             font-size: 1.8em;
-            margin-bottom: 20px;
+            margin-bottom: 2vw;
             text-align: center;
         }
         
         .type-indicator {
             display: flex;
             justify-content: space-between;
-            margin: 20px 0;
-            padding: 10px;
+            margin: 2vw 0;
+            padding: 1vw;
             background: white;
-            border-radius: 10px;
+            border-radius: 1vw;
         }
         
         .type {
             text-align: center;
             flex: 1;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 0 5px;
+            padding: 1vw;
+            border-radius: 0.5vw;
+            margin: 0 0.5vw;
             font-size: 0.85em;
         }
         
@@ -150,12 +140,12 @@
         }
         
         .result-program {
-            margin: 20px 0;
+            margin: 2vw 0;
         }
         
         .result-program h3 {
             color: #2d5a2d;
-            margin-bottom: 10px;
+            margin-bottom: 1vw;
         }
         
         .result-program ul {
@@ -164,8 +154,8 @@
         }
         
         .result-program li {
-            padding: 8px 0;
-            padding-left: 25px;
+            padding: 0.8vw 0;
+            padding-left: 2.5vw;
             position: relative;
         }
         
@@ -177,55 +167,55 @@
         
         .instruments {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+            padding: 1.5vw;
+            border-radius: 0.8vw;
+            margin-top: 1.5vw;
         }
         
         .instruments h3 {
             color: #2d5a2d;
-            margin-bottom: 10px;
+            margin-bottom: 1vw;
         }
         
         .instruments-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 1vw;
         }
         
         .instrument-tag {
             background: #2d5a2d;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 0.5vw 1.5vw;
+            border-radius: 2vw;
             font-size: 0.9em;
         }
         
         .recommendations {
             background: #fff3cd;
-            border: 1px solid #ffc107;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
+            border: 0.1vw solid #ffc107;
+            padding: 1.5vw;
+            border-radius: 1vw;
+            margin-top: 1.5vw;
         }
         
         .recommendations h4 {
             color: #856404;
-            margin-bottom: 10px;
+            margin-bottom: 1vw;
         }
         
         .score-display {
             text-align: center;
             font-size: 1.2em;
-            margin: 20px 0;
-            padding: 15px;
+            margin: 2vw 0;
+            padding: 1.5vw;
             background: white;
-            border-radius: 10px;
+            border-radius: 1vw;
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 2vw;
             }
             
             h1 {
@@ -239,9 +229,18 @@
     </style>
 </head>
 <body>
+    <div class="section0_menu">
+        <div class="titles">
+            <a href="../pages/zvuk.html" class="q1">Звукотерапия</a>
+            <a href="../pages/articles.html" class="q2">Статьи</a>
+            <a href="../index.html" class="logo">Purity of Aum</a>
+            <a href="../pages/vzaim.html" class="q3">Взаимодействие</a>
+            <a href="../pages/tests.html" class="q4">Тесты</a>
+        </div>
+    </div>
+
     <div class="container">
         <h1>🎵 Ваш тип личности и идеальная звуковая практика</h1>
-        <p class="subtitle">Purity of Aum - Персонализированный подбор звукотерапии</p>
         
         <div class="info-box">
             <strong>📋 Инструкция:</strong> Выберите вариант ответа, который наиболее точно описывает ваши предпочтения и особенности. 
